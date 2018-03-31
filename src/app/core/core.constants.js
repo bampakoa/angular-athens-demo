@@ -5,7 +5,9 @@
         .module('ngaApp.core')
         .constant('toastr', toastr)
         .constant('toastTimeout', 1500)
-        .constant('settings', getSettings());
+        .constant('settings', getSettings())
+        .constant('apiUrl', '//gateway.marvel.com/v1/public/')
+        .constant('apiKey', '<Your public key here>');
 
     function getSettings() {
         var settings = {

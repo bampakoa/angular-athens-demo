@@ -1,4 +1,4 @@
-#Angular Athens demo
+# Angular Athens demo
 AngularJS to Angular migration demo for [Athens Angular Meetup](https://www.meetup.com/Angular-Athens/).
 
 ## Setup

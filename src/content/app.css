@@ -6,3 +6,12 @@
 md-icon.fa {
     font-size: 1.8em;
 }
+
+md-grid-list {
+    margin: 16px;
+    padding-bottom: 0 !important;
+}
+
+md-grid-tile {
+    border: 10px solid black;
+}
