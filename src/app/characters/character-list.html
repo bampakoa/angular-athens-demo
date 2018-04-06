@@ -1,5 +1,5 @@
 <md-progress-linear md-mode="indeterminate" ng-if="vm.showProgress"></md-progress-linear>
-<md-content flex layout-padding>
+<md-content flex layout-padding class="content">
     <div layout="column">
         <div class="search">
             <md-input-container>
@@ -8,9 +8,21 @@
         </div>
         <md-grid-list md-cols="4" md-row-height="250px" md-on-layout="vm.isVisible = true" ng-show="vm.isVisible">
             <md-grid-tile ng-repeat="character in vm.characters">
-                <nga-character-card character="character"></nga-character-card>
+                <nga-character-card character="character" on-select="vm.selectCharacter(character)"></nga-character-card>
             </md-grid-tile>
         </md-grid-list>
         </div>
     </div>
 </md-content>
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp" md-component-id="sidebar">
+    <md-content layout-padding>
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="Details">
+                    <nga-character-detail character="vm.selectedCharacter"></nga-character-detail>
+                </md-tab>
+                <md-tab label="Comics">
+
+                </md-tab>
+            </md-tabs>
+    </md-content>
+</md-sidenav>

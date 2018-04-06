@@ -10,11 +10,13 @@
             templateUrl: 'app/characters/character-list.html'
         });
 
-    function CharacterList(characterService) {
+    function CharacterList($mdSidenav, characterService) {
         var vm = this;
         vm.characters = [];
         vm.search = search;
         vm.isVisible = false;
+        vm.selectCharacter = selectCharacter;
+        vm.selectedCharacter = null;
         vm.showProgress = false;
 
         function charactersGetComplete(characters) {
@@ -32,6 +34,11 @@
                 vm.showProgress = false;
                 vm.characters = [];
             }
+        }
+
+        function selectCharacter(character) {
+            vm.selectedCharacter = character;
+            $mdSidenav('sidebar').toggle();
         }
     }
 })();

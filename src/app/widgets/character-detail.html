@@ -1,0 +1,19 @@
+<md-card ng-if="vm.character">
+    <md-card-header>
+        <md-card-avatar>
+            <img class="md-user-avatar" ng-src="{{vm.getAvatar(vm.character.thumbnail)}}"/>
+        </md-card-avatar>
+        <md-card-header-text>
+        <span class="md-title">{{vm.character.name}}</span>
+        <span class="md-subhead">{{vm.character.id}}</span>
+        </md-card-header-text>
+    </md-card-header>
+    <img ng-src="{{vm.getCharacterImage(vm.character.thumbnail)}}" class="md-card-image">
+    <md-card-content>
+        <p>{{vm.character.description}}</p>
+    </md-card-content>
+    <md-card-actions>
+        <md-button ng-repeat="url in vm.character.urls" ng-href="{{url.url}}" target="_blank">{{url.type | uppercase}}</md-button>
+        <md-button ng-if="vm.character.urls === undefined" ng-href="{{vm.getCharacterLink(vm.character)}}" target="_blank">DETAILS</md-button>
+    </md-card-actions>
+</md-card>

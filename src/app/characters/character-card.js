@@ -8,7 +8,8 @@
             controller: CharacterCard,
             controllerAs: 'vm',
             bindings: {
-                character: '<'
+                character: '<',
+                onSelect: '&'
             },
             templateUrl: 'app/characters/character-card.html'
         });
@@ -17,6 +18,7 @@
         var vm = this;
         vm.getCharacterImage = getCharacterImage;
         vm.getCharacterLink = getCharacterLink;
+        vm.showCharacter = showCharacter;
 
         function getCharacterImage(thumbnail) {
             return imageService.getImage('landscape_incredible', thumbnail);
@@ -26,6 +28,8 @@
             return characterService.getCharacterDetailsUrl(character);
         }
 
-        function showCharacter() {}
+        function showCharacter(character) {
+            vm.onSelect({character: character});
+        }
     }
 })();
