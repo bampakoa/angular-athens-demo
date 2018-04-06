@@ -12,6 +12,37 @@ md-grid-list {
     padding-bottom: 0 !important;
 }
 
-md-grid-tile {
+md-grid-tile-footer {
+    left: -2px !important;
+    right: 12px !important;
+    bottom: 15px !important;
+}
+
+md-grid-tile-footer h3 {
+    font-size: 16px !important;
+}
+
+md-grid-tile img {
     border: 10px solid black;
+}
+
+figcaption {
+    width: 100%;
+}
+
+md-content {
+    background-image: url('../content/images/background.png');
+}
+
+md-input-container {
+    margin: 55px 25px 25px 65px;
+    width: 200px;
+}
+
+.search {
+    background-image: url('../content/images/search-bar.png');
+    background-repeat: no-repeat;
+    background-size: 320px 50px;
+    background-position-x: 20px;
+    background-position-y: 36px;
 }

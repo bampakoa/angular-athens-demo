@@ -8,7 +8,8 @@
     /* @ngInject */
     function characterService($resource, $q, apiUrl, apiKey) {
         var service = {
-            getCharacters: getCharacters
+            getCharacters: getCharacters,
+            getCharacterDetailsUrl: getCharacterDetailsUrl
         };
 
         return service;
@@ -22,6 +23,13 @@
                     resolve(response.data.results);
                 });
             });
+        }
+
+        function getCharacterDetailsUrl(character) {
+            var detail = character.urls.find(function(url){
+                return url.type === 'detail';
+            });
+            return detail ? detail.url : 'http://marvel.com';
         }
     }
 })();

@@ -1,16 +1,16 @@
 <md-progress-linear md-mode="indeterminate" ng-if="vm.showProgress"></md-progress-linear>
 <md-content flex layout-padding>
     <div layout="column">
-        <div>
+        <div class="search">
             <md-input-container>
                 <input placeholder="Search for characters..." ng-change="vm.search(term)" ng-model="term" ng-model-options="{debounce: 1000}">
             </md-input-container>
-            <md-grid-list md-cols="4" md-row-height="250px" md-on-layout="vm.isVisible = true" ng-show="vm.isVisible">
-                <md-grid-tile ng-repeat="character in vm.characters">
-                    {{::character.name}}
-                </md-grid-tile>
-            </md-grid-list>
+        </div>
+        <md-grid-list md-cols="4" md-row-height="250px" md-on-layout="vm.isVisible = true" ng-show="vm.isVisible">
+            <md-grid-tile ng-repeat="character in vm.characters">
+                <nga-character-card character="character"></nga-character-card>
+            </md-grid-tile>
+        </md-grid-list>
         </div>
     </div>
-    <div flex></div>
 </md-content>

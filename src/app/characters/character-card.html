@@ -1,0 +1,14 @@
+<img ng-src="{{vm.getCharacterImage(vm.character.thumbnail)}}" alt="photo of {{::vm.character.name}}">
+<md-grid-tile-footer>
+    <md-toolbar style="background: transparent">
+        <div class="md-toolbar-tools">
+            <h3 flex>{{::vm.character.name}}</h3>
+            <md-button class="md-icon-button" target="_blank" ng-href="{{vm.getCharacterLink(vm.character)}}">
+                <md-icon>link</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="vm.showCharacter(vm.character)">
+                <md-icon>info</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+</md-grid-tile-footer>
