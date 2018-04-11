@@ -13,6 +13,10 @@
             .state('main', {
                 url: '/',
                 template: '<nga-character-list></nga-character-list>'
+            })
+            .state('quiz', {
+                url: '/quiz',
+                template: '<nga-quiz></nga-quiz>'
             });
 
         $urlRouterProvider.otherwise('/');
