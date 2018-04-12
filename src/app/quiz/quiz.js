@@ -10,7 +10,7 @@
             templateUrl: 'app/quiz/quiz.html'
         });
 
-    function Quiz($filter, quizService) {
+    function Quiz($filter, $mdToast, quizService) {
         var vm = this;
         vm.hero = null;
         vm.questions = [];
@@ -29,7 +29,12 @@
         function submit() {
             var notCompleted = $filter('filter')(vm.questions, {answer: null}, true);
             if (notCompleted.length > 0) {
-                alert('You sneaky...A true hero must answer all the questions!');
+                $mdToast.show(
+                    $mdToast.simple()
+                      .textContent('A true hero must be honest..Answer all questions!')
+                      .action('Dismiss')
+                      .position('top right')
+                      .highlightAction(true));
             } else {
                 quizService.getHero().then(function(heroes) {
                     angular.forEach(vm.questions, function(question){

@@ -7,6 +7,7 @@
     "./bower_components/angular-animate/angular-animate.min.js",
     "./bower_components/angular-aria/angular-aria.min.js",
     "./bower_components/angular-material/angular-material.min.js",
+    "./bower_components/angular-resource/angular-resource.min.js",
     "./bower_components/angular-sanitize/angular-sanitize.min.js",
     "./bower_components/angular-ui-router/release/angular-ui-router.min.js"
   ],
@@ -23,7 +24,7 @@
     "./src/app/**/*.js"
   ],
   "fonts": [
-    "./bower_components/components-fontawesome/fonts/*.*"
+    "./bower_components/components-font-awesome/fonts/*.*"
   ],
   "images": [
     "./src/content/images/*.*"

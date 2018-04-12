@@ -19,7 +19,7 @@
         vm.setAnswer = setAnswer;
 
         function setAnswer() {
-            quizService.setAnswer(this.question, vm.answer);
+            quizService.setAnswer(vm.question, vm.answer);
         }
     }
 })();

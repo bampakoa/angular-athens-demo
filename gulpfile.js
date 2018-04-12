@@ -44,7 +44,7 @@ gulp.task('templatecache', function () {
         .pipe(plug.angularTemplatecache('templates.js', {
             module: 'ngaApp.core',
             standalone: false,
-            root: 'src/app/'
+            root: 'app/'
         }))
         .pipe(gulp.dest(paths.build));
 });
@@ -100,7 +100,7 @@ gulp.task('css', function () {
         .pipe(plug.bytediff.start())
         .pipe(plug.cssnano({safe: true}))
         .pipe(plug.bytediff.stop(bytediffFormatter))
-        .pipe(gulp.dest(paths.build));
+        .pipe(gulp.dest(paths.build + 'content'));
 });
 
 /**
@@ -118,7 +118,7 @@ gulp.task('vendorcss', function () {
         .pipe(plug.bytediff.start())
         .pipe(plug.cssnano({safe: true}))
         .pipe(plug.bytediff.stop(bytediffFormatter))
-        .pipe(gulp.dest(paths.build));
+        .pipe(gulp.dest(paths.build + 'content'));
 });
 
 /**
@@ -127,18 +127,10 @@ gulp.task('vendorcss', function () {
  */
 gulp.task('fonts', function () {
     log('Copying fonts');
-
-    // Simple Line Icons
-    var sli = gulp
-        .src(paths.slifonts)
-        .pipe(gulp.dest(paths.build + 'fonts'));
     
-    // Font Awesome
-    var fa = gulp
-        .src(paths.fafonts)
+    return gulp
+        .src(paths.fonts)
         .pipe(gulp.dest(paths.build + 'fonts'));
-
-    return merge(sli, fa);
 });
 
 /**
@@ -157,7 +149,7 @@ gulp.task('images', function () {
         .pipe(plug.cache(plug.imagemin({
             optimizationLevel: 3
         })))
-        .pipe(gulp.dest(paths.build + 'images'));
+        .pipe(gulp.dest(paths.build + 'content/images'));
 
     return merge(logo, images);
 });
@@ -171,7 +163,7 @@ gulp.task('rev-and-inject', ['js', 'vendorjs', 'css', 'vendorcss'], function () 
     log('Rev\'ing files and building index.html');
     
     var minified = paths.build + '**/*.min.*';
-    var index = 'index.html';
+    var index = 'src/index.html';
     var minFilter = plug.filter(['**/*.min.*', '!**/*.map'], { restore: true });
     var indexFilter = plug.filter(['**/index.html'], { restore: true });
     
@@ -185,8 +177,8 @@ gulp.task('rev-and-inject', ['js', 'vendorjs', 'css', 'vendorcss'], function () 
 
     // inject the files into index.html
     .pipe(indexFilter)// filter to index.html
-    .pipe(inject('vendor.min.css', 'inject-vendor'))
-        .pipe(inject('all.min.css'))
+    .pipe(inject('content/vendor.min.css', 'inject-vendor'))
+        .pipe(inject('content/all.min.css'))
         .pipe(inject('vendor.min.js', 'inject-vendor'))
         .pipe(inject('all.min.js'))
         .pipe(gulp.dest(paths.build))// write the rev files
@@ -231,14 +223,10 @@ gulp.task('build', ['rev-and-inject', 'images', 'fonts'], function () {
  * @return {Stream}
  */
 gulp.task('clean', function (cb) {
-    var mapFiles = "./src/app/**/*.map";
-
     log('Cleaning: ' + plug.util.colors.blue(paths.build));
     log('Cleaning: ' + plug.util.colors.blue(paths.report));
-    log('Cleaning: ' + plug.util.colors.blue(paths.js));
-    log('Cleaning: ' + plug.util.colors.blue(mapFiles));
     
-    var delPaths = [].concat(paths.build, paths.report, paths.js, mapFiles);
+    var delPaths = [].concat(paths.build, paths.report);
     del(delPaths, cb);
 });
 
