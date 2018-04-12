@@ -10,7 +10,7 @@
             templateUrl: 'app/quiz/quiz.html'
         });
 
-    function Quiz(quizService) {
+    function Quiz($filter, quizService) {
         var vm = this;
         vm.hero = null;
         vm.questions = [];
@@ -27,10 +27,16 @@
         }
 
         function submit() {
-            if (vm.questions.find(function(question) { return !question.answer }) !== undefined) {
+            var notCompleted = $filter('filter')(vm.questions, {answer: null}, true);
+            if (notCompleted.length > 0) {
                 alert('You sneaky...A true hero must answer all the questions!');
             } else {
-                quizService.getHero().then(function(hero) { vm.hero = hero });
+                quizService.getHero().then(function(heroes) {
+                    angular.forEach(vm.questions, function(question){
+                        question.answer = null;
+                    });
+                    vm.hero = heroes[0];
+                });
             }
         }
     }

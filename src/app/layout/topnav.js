@@ -12,7 +12,6 @@
 
     function Topnav(settings) {
         var vm = this;
-
         vm.title = '';
         vm.$onInit = onInit;
 

@@ -6,7 +6,7 @@
         .config(configure);
 
     /* @ngInject */
-    function configure($compileProvider, $logProvider, exceptionHandlerProvider, settings, toastr, toastTimeout) {
+    function configure($compileProvider, $logProvider, $httpProvider, exceptionHandlerProvider, settings, toastr, toastTimeout) {
         // disable debug info and log messages
         $compileProvider.debugInfoEnabled(false);
         $logProvider.debugEnabled(false);
@@ -16,5 +16,7 @@
 
         // toastr configuration
         toastr.options.timeOut = toastTimeout;
+
+        $httpProvider.interceptors.push('httpInterceptor');
     }
 })();
