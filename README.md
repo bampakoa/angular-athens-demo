@@ -1,10 +1,12 @@
-# Angular Athens demo
-AngularJS to Angular migration demo for [Athens Angular Meetup](https://www.meetup.com/Angular-Athens/).
+# Move into Angular CLI
+Use the [Angular CLI](https://cli.angular.io/) to build the application and deprecate **lite-server** and **gulp**.
 
 ## Setup
 
-Clone this repo to your desktop and run `bower install` and `npm install` to install all the dependencies.
+Run `npm install -g @angular/cli@latest` to install Angular CLI.
+
+Checkout this branch to your desktop and run `npm install` to install all the dependencies.
 
 ## Usage
 
-Run `npm start` to start the application. You will then be able to access it at **http://localhost:3001**
+Run `npm start` to start the application. You will then be able to access it at **http://localhost:4200**
