@@ -1,0 +1,104 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+      "name": "angular-athens-demo"
+    },
+    "apps": [
+      {
+        "root": "src",
+        "outDir": "dist",
+        "assets": [
+          "assets",
+          "favicon.ico"
+        ],
+        "index": "index.html",
+        "main": "app/app.js",
+        "polyfills": "polyfills.ts",
+        "test": "test.ts",
+        "tsconfig": "tsconfig.app.json",
+        "testTsconfig": "tsconfig.spec.json",
+        "prefix": "app",
+        "styles": [
+          "../bower_components/angular-material/angular-material.css",
+          "../bower_components/toastr/toastr.css",
+          "styles.css",
+          "../bower_components/components-font-awesome/css/font-awesome.css"
+        ],
+        "scripts": [
+          "../bower_components/jquery/dist/jquery.js",
+          "../bower_components/toastr/toastr.js",
+          "../bower_components/angular/angular.js",
+          "../bower_components/angular-animate/angular-animate.js",
+          "../bower_components/angular-aria/angular-aria.js",
+          "../bower_components/angular-material/angular-material.js",
+          "../bower_components/angular-resource/angular-resource.js",
+          "../bower_components/angular-sanitize/angular-sanitize.js",
+          "../bower_components/angular-ui-router/release/angular-ui-router.js",
+          "app/app.js",
+          "app/blocks/exception/exception.module.js",
+          "app/blocks/exception/exception-handler.provider.js",
+          "app/blocks/exception/exception.service.js",
+          "app/blocks/logger/logger.module.js",
+          "app/blocks/logger/logger.js",
+          "app/core/core.module.js",
+          "app/core/core.constants.js",
+          "app/core/core.config.js",
+          "app/core/core.routes.js",
+          "app/core/image.service.js",
+          "app/core/http-interceptor.js",
+          "app/widgets/widgets.module.js",
+          "app/widgets/character-detail.js",
+          "app/layout/layout.module.js",
+          "app/layout/shell.js",
+          "app/layout/topnav.js",
+          "app/layout/copyright.js",
+          "app/characters/characters.module.js",
+          "app/characters/characters.service.js",
+          "app/characters/character-list.js",
+          "app/characters/character-card.js",
+          "app/comics/comics.module.js",
+          "app/comics/comics.service.js",
+          "app/comics/comic-list.js",
+          "app/comics/comic-detail.js",
+          "app/quiz/quiz.module.js",
+          "app/quiz/quiz.service.js",
+          "app/quiz/quiz.js",
+          "app/quiz/question.js",
+          "app/templates.js"
+        ],
+        "environmentSource": "environments/environment.ts",
+        "environments": {
+          "dev": "environments/environment.ts",
+          "prod": "environments/environment.prod.ts"
+        }
+      }
+    ],
+    "e2e": {
+      "protractor": {
+        "config": "./protractor.conf.js"
+      }
+    },
+    "lint": [
+      {
+        "project": "src/tsconfig.app.json",
+        "exclude": "**/node_modules/**"
+      },
+      {
+        "project": "src/tsconfig.spec.json",
+        "exclude": "**/node_modules/**"
+      },
+      {
+        "project": "e2e/tsconfig.e2e.json",
+        "exclude": "**/node_modules/**"
+      }
+    ],
+    "test": {
+      "karma": {
+        "config": "./karma.conf.js"
+      }
+    },
+    "defaults": {
+      "styleExt": "css",
+      "component": {}
+    }
+  }
