@@ -5,7 +5,6 @@
         .module('ngaApp.core')
         .config(configure);
 
-    /* @ngInject */
     function configure($stateProvider, $urlRouterProvider, $locationProvider) {
         $locationProvider.html5Mode(true);
 
