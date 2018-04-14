@@ -14,7 +14,7 @@
         });
 
     function ComicList(comicService) {
-        var vm = this;
+        const vm = this;
         vm.comics = [];
         vm.showProgress = false;
         vm.$onChanges = onChanges;

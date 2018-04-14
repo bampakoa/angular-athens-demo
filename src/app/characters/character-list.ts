@@ -11,7 +11,7 @@
         });
 
     function CharacterList($mdSidenav, characterService) {
-        var vm = this;
+        const vm = this;
         vm.characters = [];
         vm.search = search;
         vm.isVisible = false;
@@ -25,10 +25,10 @@
         }
 
         function search(name) {
-            if (name) { 
+            if (name) {
                 vm.isVisible = false;
                 vm.showProgress = true;
-                
+
                 characterService.getCharacters(name).then(charactersGetComplete).finally(function() { vm.showProgress = false; });
             } else {
                 vm.showProgress = false;

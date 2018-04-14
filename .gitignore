@@ -5,7 +5,7 @@
 /dist-server
 /tmp
 /out-tsc
-/src/app/templates.js
+/src/app/templates.ts
 
 # dependencies
 /bower_components

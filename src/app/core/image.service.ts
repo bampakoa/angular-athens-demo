@@ -6,7 +6,7 @@
         .service('imageService', imageService);
 
     function imageService() {
-        var service = {
+        const service = {
             getImage: getImage
         };
 

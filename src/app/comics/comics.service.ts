@@ -6,7 +6,7 @@
         .service('comicService', comicService);
 
     function comicService($resource, apiUrl) {
-        var service = {
+        const service = {
             getComics: getComics
         };
 

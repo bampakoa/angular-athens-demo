@@ -14,7 +14,7 @@
         });
 
     function Question(quizService) {
-        var vm = this;
+        const vm = this;
         vm.answer = null;
         vm.setAnswer = setAnswer;
 

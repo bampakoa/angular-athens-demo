@@ -6,7 +6,7 @@
         .factory('logger', logger);
 
     function logger($log, toastr) {
-        var service = {
+        const service = {
             error   : error,
             info    : info,
             success : success,

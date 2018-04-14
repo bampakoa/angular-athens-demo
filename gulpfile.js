@@ -12,7 +12,7 @@ gulp.task('templatecache', function () {
         .pipe(plug.htmlmin({
             collapseWhitespace: true
         }))
-        .pipe(plug.angularTemplatecache('templates.js', {
+        .pipe(plug.angularTemplatecache('templates.ts', {
             module: 'ngaApp.core',
             standalone: false,
             root: 'app/'

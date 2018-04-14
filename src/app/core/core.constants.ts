@@ -10,7 +10,7 @@
         .constant('apiKey', '<Your public key here>');
 
     function getSettings() {
-        var settings = {
+        const settings = {
             appErrorPrefix: '[Angular Heroes Error] ',
             appTitle: 'Angular Heroes',
             version: '1.0.0'

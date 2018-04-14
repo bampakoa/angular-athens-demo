@@ -15,7 +15,7 @@
         });
 
     function CharacterCard(imageService, characterService) {
-        var vm = this;
+        const vm = this;
         vm.getCharacterImage = getCharacterImage;
         vm.getCharacterLink = getCharacterLink;
         vm.showCharacter = showCharacter;

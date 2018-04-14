@@ -18,6 +18,8 @@
         this.$get = function() {
             return {config: this.config};
         };
+
+        return this;
     }
 
     function config($provide) {
@@ -26,8 +28,8 @@
 
     function extendExceptionHandler($delegate, exceptionHandler, logger) {
         return function(exception, cause) {
-            var appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';
-            var errorData = {exception: exception, cause: cause};
+            const appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';
+            const errorData = {exception: exception, cause: cause};
             exception.message = appErrorPrefix + exception.message;
             $delegate(exception, cause);
             logger.error(exception.message, errorData);

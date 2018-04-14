@@ -11,8 +11,7 @@
         });
 
     function Copyright(settings) {
-        var vm = this;
-
+        const vm = this;
         vm.version = '';
         vm.$onInit = onInit;
 

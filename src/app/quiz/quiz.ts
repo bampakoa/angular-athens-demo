@@ -11,7 +11,7 @@
         });
 
     function Quiz($filter, $mdToast, quizService) {
-        var vm = this;
+        const vm = this;
         vm.hero = null;
         vm.questions = [];
         vm.$onInit = onInit;
@@ -27,7 +27,7 @@
         }
 
         function submit() {
-            var notCompleted = $filter('filter')(vm.questions, {answer: null}, true);
+            const notCompleted = $filter('filter')(vm.questions, {answer: null}, true);
             if (notCompleted.length > 0) {
                 $mdToast.show(
                     $mdToast.simple()

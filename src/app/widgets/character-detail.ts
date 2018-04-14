@@ -14,7 +14,7 @@
         });
 
     function CharacterDetail(imageService, characterService) {
-        var vm = this;
+        const vm = this;
         vm.getAvatar = getAvatar;
         vm.getCharacterImage = getCharacterImage;
         vm.getCharacterLink = getCharacterLink;

@@ -6,7 +6,7 @@
         .factory('exception', exception);
 
     function exception(logger) {
-        var service = {
+        const service = {
             catcher: catcher
         };
         return service;

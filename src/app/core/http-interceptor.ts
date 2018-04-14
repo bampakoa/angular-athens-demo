@@ -6,7 +6,7 @@
         .service('httpInterceptor', httpInterceptor);
 
     function httpInterceptor(apiUrl, apiKey) {
-        var service = {
+        const service = {
             request: request,
             response: response
         };
@@ -28,12 +28,12 @@
             return config;
         }
 
-        function response(response) {
-            if (isApiCall(response.config.url)) {
-                response.data = response.data.data.results;
+        function response(resp) {
+            if (isApiCall(resp.config.url)) {
+              resp.data = resp.data.data.results;
             }
 
-            return response;
+            return resp;
         }
     }
 })();

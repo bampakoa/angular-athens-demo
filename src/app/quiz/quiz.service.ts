@@ -6,7 +6,7 @@
         .service('quizService', quizService);
 
     function quizService($resource, $filter, apiUrl) {
-        var questions = [
+        const questions = [
             {
               no: 1,
               description: 'Would you sacrifice your own life to save the one you love the most?',
@@ -65,7 +65,9 @@
             },
             {
               no: 9,
+              // tslint:disable-next-line:max-line-length
               description: 'You can decide to end violence, but doing so all violent people would die. Would you make that decision anyway?',
+              // tslint:enable-next-line:max-line-length
               positive: ['1010925', '1009368', '1009262', '1009268', '1009189', '1009515'],
               negative: ['1009220', '1009718', '1009351', '1009610', '1009664', '1009282'],
               answer: null
@@ -86,13 +88,15 @@
             },
             {
               no: 12,
+              // tslint:disable-next-line:max-line-length
               description: 'You can teleport yourself anywhere you want but everytime you do it you lose one year of your life. Would you do it?',
+              // tslint:enable-next-line:max-line-length
               positive: ['1010925', '1009351', '1009268', '1009515', '1009282'],
               negative: ['1009220', '1009718', '1009368', '1009610', '1009262', '1009189', '1009664'],
               answer: null
             }
         ];
-        var service = {
+        const service = {
             getHero: getHero,
             getQuestions: getQuestions,
             setAnswer: setAnswer
@@ -101,13 +105,13 @@
         return service;
 
         function getHero() {
-            var ranking = {};
+            const ranking = {};
 
             angular.forEach(questions, function(question) {
                 match((question.answer === 'yes') ? question.positive : question.negative, ranking);
             });
 
-            var heroId = Object.keys(ranking).reduce(function(a, b) { return ranking[a] > ranking[b] ? a : b; });
+            const heroId = Object.keys(ranking).reduce(function(a, b) { return ranking[a] > ranking[b] ? a : b; });
 
             return $resource(apiUrl + 'characters/' + heroId).query().$promise;
         }
@@ -127,7 +131,7 @@
         }
 
         function setAnswer(question, answer) {
-            var q = $filter('filter')(questions, {no: question.no});
+            const q = $filter('filter')(questions, {no: question.no});
             if (q.length > 0) {
               q[0].answer = answer;
             }

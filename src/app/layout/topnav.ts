@@ -11,7 +11,7 @@
         });
 
     function Topnav(settings) {
-        var vm = this;
+        const vm = this;
         vm.title = '';
         vm.$onInit = onInit;
 
