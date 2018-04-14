@@ -1,4 +1,4 @@
-(function() {
+(() => {
     'use strict';
 
     angular
@@ -11,11 +11,11 @@
             appErrorPrefix: undefined
         };
 
-        this.configure = function (appErrorPrefix) {
+        this.configure = appErrorPrefix => {
             this.config.appErrorPrefix = appErrorPrefix;
         };
 
-        this.$get = function() {
+        this.$get = () => {
             return {config: this.config};
         };
 
@@ -27,7 +27,7 @@
     }
 
     function extendExceptionHandler($delegate, exceptionHandler, logger) {
-        return function(exception, cause) {
+        return (exception, cause) => {
             const appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';
             const errorData = {exception: exception, cause: cause};
             exception.message = appErrorPrefix + exception.message;

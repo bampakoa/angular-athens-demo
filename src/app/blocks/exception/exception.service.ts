@@ -1,4 +1,4 @@
-(function() {
+(() => {
     'use strict';
 
     angular
@@ -12,7 +12,7 @@
         return service;
 
         function catcher(message) {
-            return function(reason) {
+            return reason => {
                 logger.error(message, reason);
             };
         }

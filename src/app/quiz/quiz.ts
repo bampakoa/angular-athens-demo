@@ -1,4 +1,4 @@
-(function () {
+(() => {
 
     'use strict';
 
@@ -36,8 +36,8 @@
                       .position('top right')
                       .highlightAction(true));
             } else {
-                quizService.getHero().then(function(heroes) {
-                    angular.forEach(vm.questions, function(question){
+                quizService.getHero().then(heroes => {
+                    angular.forEach(vm.questions, question => {
                         question.answer = null;
                     });
                     vm.hero = heroes[0];

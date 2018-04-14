@@ -1,4 +1,4 @@
-(function () {
+(() => {
 
     'use strict';
 
@@ -29,7 +29,7 @@
                 vm.isVisible = false;
                 vm.showProgress = true;
 
-                characterService.getCharacters(name).then(charactersGetComplete).finally(function() { vm.showProgress = false; });
+                characterService.getCharacters(name).then(charactersGetComplete).finally(() => vm.showProgress = false);
             } else {
                 vm.showProgress = false;
                 vm.characters = [];

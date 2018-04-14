@@ -1,4 +1,4 @@
-(function () {
+(() => {
 
     'use strict';
 
@@ -22,7 +22,7 @@
         function onChanges() {
             vm.comics = [];
             vm.showProgress = true;
-            comicService.getComics(vm.character.id).then(comicsGetComplete).finally(function() { vm.showProgress = false; });
+            comicService.getComics(vm.character.id).then(comicsGetComplete).finally(() => vm.showProgress = false);
         }
 
         function comicsGetComplete(comics) {

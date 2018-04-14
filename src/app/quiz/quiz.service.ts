@@ -1,4 +1,4 @@
-(function () {
+(() => {
     'use strict';
 
     angular
@@ -107,11 +107,11 @@
         function getHero() {
             const ranking = {};
 
-            angular.forEach(questions, function(question) {
+            angular.forEach(questions, question => {
                 match((question.answer === 'yes') ? question.positive : question.negative, ranking);
             });
 
-            const heroId = Object.keys(ranking).reduce(function(a, b) { return ranking[a] > ranking[b] ? a : b; });
+            const heroId = Object.keys(ranking).reduce((a, b) => ranking[a] > ranking[b] ? a : b);
 
             return $resource(apiUrl + 'characters/' + heroId).query().$promise;
         }
@@ -121,7 +121,7 @@
         }
 
         function match(arr, data) {
-            angular.forEach(arr, function(name) {
+            angular.forEach(arr, name => {
               if (!data[name]) {
                 data[name] = 100 / arr.length;
               } else {
