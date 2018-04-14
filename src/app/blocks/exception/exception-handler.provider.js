@@ -7,7 +7,6 @@
         .config(config);
 
     function exceptionHandlerProvider() {
-        /* jshint validthis:true */
         this.config = {
             appErrorPrefix: undefined
         };
@@ -21,7 +20,6 @@
         };
     }
 
-    /* @ngInject */
     function config($provide) {
         $provide.decorator('$exceptionHandler', extendExceptionHandler);
     }

@@ -4,8 +4,7 @@
     angular
         .module('ngaApp.core')
         .service('httpInterceptor', httpInterceptor);
-    
-    /* @ngInject */
+
     function httpInterceptor(apiUrl, apiKey) {
         var service = {
             request: request,
@@ -25,7 +24,7 @@
                 }
                 config.params.apikey = apiKey;
             }
-            
+
             return config;
         }
 

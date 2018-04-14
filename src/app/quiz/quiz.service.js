@@ -4,8 +4,7 @@
     angular
         .module('ngaApp.quiz')
         .service('quizService', quizService);
-    
-    /* @ngInject */
+
     function quizService($resource, $filter, apiUrl) {
         var questions = [
             {
@@ -92,7 +91,7 @@
               negative: ['1009220', '1009718', '1009368', '1009610', '1009262', '1009189', '1009664'],
               answer: null
             }
-        ];      
+        ];
         var service = {
             getHero: getHero,
             getQuestions: getQuestions,

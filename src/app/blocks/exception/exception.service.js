@@ -5,7 +5,6 @@
         .module('blocks.exception')
         .factory('exception', exception);
 
-    /* @ngInject */
     function exception(logger) {
         var service = {
             catcher: catcher

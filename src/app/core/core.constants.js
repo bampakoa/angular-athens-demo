@@ -1,4 +1,3 @@
-/* globals toastr */
 (function () {
     'use strict';
 
@@ -19,4 +18,4 @@
 
         return settings;
     }
-})(); 
+})();
