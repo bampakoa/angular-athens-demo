@@ -1,25 +1,20 @@
-(() => {
+class Question {
+  answer;
+  question;
 
-    'use strict';
+  constructor(private quizService) {}
 
-    angular
-        .module('ngaApp.quiz')
-        .component('ngaQuestion', {
-            controller: Question,
-            controllerAs: 'vm',
-            bindings: {
-                question: '<'
-            },
-            templateUrl: 'app/quiz/question.html'
-        });
+  setAnswer() {
+    this.quizService.setAnswer(this.question, this.answer);
+  }
+}
 
-    function Question(quizService) {
-        const vm = this;
-        vm.answer = null;
-        vm.setAnswer = setAnswer;
-
-        function setAnswer() {
-            quizService.setAnswer(vm.question, vm.answer);
-        }
-    }
-})();
+angular
+  .module('ngaApp.quiz')
+  .component('ngaQuestion', {
+    controller: Question,
+    bindings: {
+        question: '<'
+    },
+    templateUrl: 'app/quiz/question.html'
+  });

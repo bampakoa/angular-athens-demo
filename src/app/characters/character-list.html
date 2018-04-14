@@ -1,14 +1,14 @@
-<md-progress-linear md-mode="indeterminate" ng-if="vm.showProgress"></md-progress-linear>
+<md-progress-linear md-mode="indeterminate" ng-if="$ctrl.showProgress"></md-progress-linear>
 <md-content flex layout-padding class="content">
     <div layout="column">
         <div class="search">
             <md-input-container>
-                <input placeholder="Search for characters..." ng-change="vm.search(term)" ng-model="term" ng-model-options="{debounce: 1000}">
+                <input placeholder="Search for characters..." ng-change="$ctrl.search(term)" ng-model="term" ng-model-options="{debounce: 1000}">
             </md-input-container>
         </div>
-        <md-grid-list md-cols="4" md-row-height="250px" md-on-layout="vm.isVisible = true" ng-show="vm.isVisible">
-            <md-grid-tile ng-repeat="character in vm.characters">
-                <nga-character-card character="character" on-select="vm.selectCharacter(character)"></nga-character-card>
+        <md-grid-list md-cols="4" md-row-height="250px" md-on-layout="$ctrl.isVisible = true" ng-show="$ctrl.isVisible">
+            <md-grid-tile ng-repeat="character in $ctrl.characters">
+                <nga-character-card character="character" on-select="$ctrl.selectCharacter(character)"></nga-character-card>
             </md-grid-tile>
         </md-grid-list>
         </div>
@@ -18,10 +18,10 @@
     <md-content layout-padding>
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Details">
-                    <nga-character-detail character="vm.selectedCharacter"></nga-character-detail>
+                    <nga-character-detail character="$ctrl.selectedCharacter"></nga-character-detail>
                 </md-tab>
                 <md-tab label="Comics">
-                    <nga-comic-list ng-if="vm.selectedCharacter" character="vm.selectedCharacter"></nga-comic-list>
+                    <nga-comic-list ng-if="$ctrl.selectedCharacter" character="$ctrl.selectedCharacter"></nga-comic-list>
                 </md-tab>
             </md-tabs>
     </md-content>

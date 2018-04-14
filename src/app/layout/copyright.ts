@@ -1,22 +1,16 @@
-(() => {
+class Copyright {
+  version = '';
 
-    'use strict';
+  constructor(private settings) {}
 
-    angular
-        .module('ngaApp.layout')
-        .component('ngaCopyright', {
-            controller: Copyright,
-            controllerAs: 'vm',
-            templateUrl: 'app/layout/copyright.html'
-        });
+  $onInit() {
+    this.version = this.settings.version;
+  }
+}
 
-    function Copyright(settings) {
-        const vm = this;
-        vm.version = '';
-        vm.$onInit = onInit;
-
-        function onInit() {
-            vm.version = settings.version;
-        }
-    }
-})();
+angular
+  .module('ngaApp.layout')
+  .component('ngaCopyright', {
+    controller: Copyright,
+    templateUrl: 'app/layout/copyright.html'
+  });

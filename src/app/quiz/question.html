@@ -1,10 +1,10 @@
 <md-list-item>
     <div class="md-list-item-text">
         <h4>
-            <b>{{vm.question.no}}. {{vm.question.description}} ?</b>
+            <b>{{$ctrl.question.no}}. {{$ctrl.question.description}} ?</b>
         </h4>
         <p>
-            <md-radio-group ng-change="vm.setAnswer()" ng-model="vm.answer" layout="row">
+            <md-radio-group ng-change="$ctrl.setAnswer()" ng-model="$ctrl.answer" layout="row">
                 <md-radio-button value="yes">Yes</md-radio-button>
                 <md-radio-button value="no">No</md-radio-button>
             </md-radio-group>

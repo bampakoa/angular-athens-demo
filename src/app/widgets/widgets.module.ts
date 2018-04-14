@@ -1,5 +1,1 @@
-(() => {
-    'use strict';
-
-    angular.module('ngaApp.widgets', []);
-})();
+angular.module('ngaApp.widgets', []);

@@ -1,5 +1,1 @@
-(() => {
-    'use strict';
-
-    angular.module('ngaApp.layout', []);
-})();
+angular.module('ngaApp.layout', []);

@@ -1,20 +1,15 @@
-(() => {
-    'use strict';
+class Exception {
 
-    angular
-        .module('blocks.exception')
-        .factory('exception', exception);
+  constructor(private logger) {}
 
-    function exception(logger) {
-        const service = {
-            catcher: catcher
-        };
-        return service;
+  catcher(message) {
+    return reason => {
+      this.logger.error(message, reason);
+    };
+  }
 
-        function catcher(message) {
-            return reason => {
-                logger.error(message, reason);
-            };
-        }
-    }
-})();
+}
+
+angular
+  .module('blocks.exception')
+  .service('exception', Exception);

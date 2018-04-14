@@ -4,9 +4,8 @@
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "module": "es2015",
-    "types": [
-      "angular",
-      "toastr"
+    "typeRoots": [
+      "../node_modules/@types"
     ]
   },
   "exclude": [

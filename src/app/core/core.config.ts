@@ -1,21 +1,17 @@
-(() => {
-    'use strict';
+function configureCore($compileProvider, $logProvider, $httpProvider, exceptionHandlerProvider, settings, toastr, toastTimeout) {
+  // disable debug info and log messages
+  $compileProvider.debugInfoEnabled(false);
+  $logProvider.debugEnabled(false);
 
-    angular
-        .module('ngaApp.core')
-        .config(configure);
+  // add a prefix to application exception messages
+  exceptionHandlerProvider.configure(settings.appErrorPrefix);
 
-    function configure($compileProvider, $logProvider, $httpProvider, exceptionHandlerProvider, settings, toastr, toastTimeout) {
-        // disable debug info and log messages
-        $compileProvider.debugInfoEnabled(false);
-        $logProvider.debugEnabled(false);
+  // toastr configuration
+  toastr.options.timeOut = toastTimeout;
 
-        // add a prefix to application exception messages
-        exceptionHandlerProvider.configure(settings.appErrorPrefix);
+  $httpProvider.interceptors.push('httpInterceptor');
+}
 
-        // toastr configuration
-        toastr.options.timeOut = toastTimeout;
-
-        $httpProvider.interceptors.push('httpInterceptor');
-    }
-})();
+angular
+  .module('ngaApp.core')
+  .config(configureCore);

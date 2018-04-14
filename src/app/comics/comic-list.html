@@ -1,8 +1,8 @@
 <md-grid-list md-cols="1" md-row-height="300px">
-    <md-grid-tile ng-if="vm.showProgress">
+    <md-grid-tile ng-if="$ctrl.showProgress">
         <md-progress-circular md-mode="indeterminate" md-diameter="96"></md-progress-circular>
     </md-grid-tile>
-    <md-grid-tile ng-repeat="comic in vm.comics | filter:{digitalId: '!' + 0} track by comic.id">
+    <md-grid-tile ng-repeat="comic in $ctrl.comics | filter:{digitalId: '!' + 0} track by comic.id">
         <nga-comic-detail comic="comic"></nga-comic-detail>
     </md-grid-tile>
 </md-grid-list>

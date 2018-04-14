@@ -1,22 +1,16 @@
-(() => {
+class Topnav {
+  title = '';
 
-    'use strict';
+  constructor(private settings) {}
 
-    angular
-        .module('ngaApp.layout')
-        .component('ngaTopnav', {
-            controller: Topnav,
-            controllerAs: 'vm',
-            templateUrl: 'app/layout/topnav.html'
-        });
+  $onInit() {
+    this.title = this.settings.appTitle;
+  }
+}
 
-    function Topnav(settings) {
-        const vm = this;
-        vm.title = '';
-        vm.$onInit = onInit;
-
-        function onInit() {
-            vm.title = settings.appTitle;
-        }
-    }
-})();
+angular
+  .module('ngaApp.layout')
+  .component('ngaTopnav', {
+      controller: Topnav,
+      templateUrl: 'app/layout/topnav.html'
+  });

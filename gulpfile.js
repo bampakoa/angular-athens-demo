@@ -15,7 +15,9 @@ gulp.task('templatecache', function () {
         .pipe(plug.angularTemplatecache('templates.ts', {
             module: 'ngaApp.core',
             standalone: false,
-            root: 'app/'
+            root: 'app/',
+            templateHeader: 'function templateCacheFactory($templateCache) {',
+            templateFooter: '}; angular.module(\'ngaApp.core\').run(templateCacheFactory);'
         }))
         .pipe(gulp.dest('./src/app/'))
   });

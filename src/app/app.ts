@@ -1,13 +1,40 @@
-(() => {
-    'use strict';
+require('./blocks/exception/exception.module');
+require('./blocks/exception/exception.service');
+require('./blocks/exception/exception-handler.provider');
+require('./blocks/logger/logger.module');
+require('./blocks/logger/logger');
+require('./characters/characters.module');
+require('./characters/character-card');
+require('./characters/character-list');
+require('./characters/characters.service');
+require('./comics/comics.module');
+require('./comics/comic-detail');
+require('./comics/comic-list');
+require('./comics/comics.service');
+require('./core/core.module');
+require('./core/core.config');
+require('./core/core.constants');
+require('./core/core.routes');
+require('./core/http-interceptor');
+require('./core/image.service');
+require('./layout/layout.module');
+require('./layout/copyright');
+require('./layout/shell');
+require('./layout/topnav');
+require('./quiz/quiz.module');
+require('./quiz/question');
+require('./quiz/quiz.service');
+require('./quiz/quiz');
+require('./widgets/widgets.module');
+require('./widgets/character-detail');
+require('./templates');
 
-    angular
-        .module('ngaApp', [
-            'ngaApp.core',
-            'ngaApp.layout',
-            'ngaApp.widgets',
-            'ngaApp.characters',
-            'ngaApp.comics',
-            'ngaApp.quiz'
-        ]);
-})();
+angular
+  .module('ngaApp', [
+      'ngaApp.core',
+      'ngaApp.layout',
+      'ngaApp.widgets',
+      'ngaApp.characters',
+      'ngaApp.comics',
+      'ngaApp.quiz'
+  ]);

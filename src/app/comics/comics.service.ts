@@ -1,19 +1,13 @@
-(() => {
-    'use strict';
+class ComicService {
 
-    angular
-        .module('ngaApp.comics')
-        .service('comicService', comicService);
+  constructor(private $resource, private apiUrl) {}
 
-    function comicService($resource, apiUrl) {
-        const service = {
-            getComics: getComics
-        };
+  getComics(characterId) {
+      return this.$resource(this.apiUrl + 'characters/' + characterId + '/comics').query().$promise;
+  }
 
-        return service;
+}
 
-        function getComics(characterId) {
-            return $resource(apiUrl + 'characters/' + characterId + '/comics').query().$promise;
-        }
-    }
-})();
+angular
+  .module('ngaApp.comics')
+  .service('comicService', ComicService);

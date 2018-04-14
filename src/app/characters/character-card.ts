@@ -1,35 +1,28 @@
-(() => {
+class CharacterCard {
+  onSelect;
 
-    'use strict';
+  constructor(private imageService, private characterService) {}
 
-    angular
-        .module('ngaApp.characters')
-        .component('ngaCharacterCard', {
-            controller: CharacterCard,
-            controllerAs: 'vm',
-            bindings: {
-                character: '<',
-                onSelect: '&'
-            },
-            templateUrl: 'app/characters/character-card.html'
-        });
+  getCharacterImage(thumbnail) {
+    return this.imageService.getImage('landscape_incredible', thumbnail);
+  }
 
-    function CharacterCard(imageService, characterService) {
-        const vm = this;
-        vm.getCharacterImage = getCharacterImage;
-        vm.getCharacterLink = getCharacterLink;
-        vm.showCharacter = showCharacter;
+  getCharacterLink(character) {
+    return this.characterService.getCharacterDetailsUrl(character);
+  }
 
-        function getCharacterImage(thumbnail) {
-            return imageService.getImage('landscape_incredible', thumbnail);
-        }
+  showCharacter(character) {
+    this.onSelect({character: character});
+  }
+}
 
-        function getCharacterLink(character) {
-            return characterService.getCharacterDetailsUrl(character);
-        }
-
-        function showCharacter(character) {
-            vm.onSelect({character: character});
-        }
-    }
-})();
+angular
+  .module('ngaApp.characters')
+  .component('ngaCharacterCard', {
+    controller: CharacterCard,
+    bindings: {
+        character: '<',
+        onSelect: '&'
+    },
+    templateUrl: 'app/characters/character-card.html'
+  });

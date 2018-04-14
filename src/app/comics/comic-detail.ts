@@ -1,24 +1,19 @@
-(() => {
+class ComicDetail {
 
-    'use strict';
+  constructor(private imageService) {}
 
-    angular
-        .module('ngaApp.comics')
-        .component('ngaComicDetail', {
-            controller: ComicDetail,
-            controllerAs: 'vm',
-            bindings: {
-                comic: '<'
-            },
-            templateUrl: 'app/comics/comic-detail.html'
-        });
+  getComicImage(thumbnail) {
+    return this.imageService.getImage('portrait_fantastic', thumbnail);
+  }
 
-    function ComicDetail(imageService) {
-        const vm = this;
-        vm.getComicImage = getComicImage;
+}
 
-        function getComicImage(thumbnail) {
-            return imageService.getImage('portrait_fantastic', thumbnail);
-        }
-    }
-})();
+angular
+  .module('ngaApp.comics')
+  .component('ngaComicDetail', {
+    controller: ComicDetail,
+    bindings: {
+      comic: '<'
+    },
+    templateUrl: 'app/comics/comic-detail.html'
+  });

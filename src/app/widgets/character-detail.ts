@@ -1,34 +1,27 @@
-(() => {
+class CharacterDetail {
 
-    'use strict';
+  constructor(private imageService, private characterService) {}
 
-    angular
-        .module('ngaApp.widgets')
-        .component('ngaCharacterDetail', {
-            controller: CharacterDetail,
-            controllerAs: 'vm',
-            bindings: {
-                character: '<'
-            },
-            templateUrl: 'app/widgets/character-detail.html'
-        });
+  getAvatar(thumbnail) {
+    return this.imageService.getImage('standard_medium', thumbnail);
+  }
 
-    function CharacterDetail(imageService, characterService) {
-        const vm = this;
-        vm.getAvatar = getAvatar;
-        vm.getCharacterImage = getCharacterImage;
-        vm.getCharacterLink = getCharacterLink;
+  getCharacterImage(thumbnail) {
+    return this.imageService.getImage('portrait_uncanny', thumbnail);
+  }
 
-        function getAvatar(thumbnail) {
-            return imageService.getImage('standard_medium', thumbnail);
-        }
+  getCharacterLink(character) {
+    return this.characterService.getCharacterDetailsUrl(character);
+  }
 
-        function getCharacterImage(thumbnail) {
-            return imageService.getImage('portrait_uncanny', thumbnail);
-        }
+}
 
-        function getCharacterLink(character) {
-            return characterService.getCharacterDetailsUrl(character);
-        }
-    }
-})();
+angular
+  .module('ngaApp.widgets')
+  .component('ngaCharacterDetail', {
+      controller: CharacterDetail,
+      bindings: {
+          character: '<'
+      },
+      templateUrl: 'app/widgets/character-detail.html'
+  });

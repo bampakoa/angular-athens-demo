@@ -1,21 +1,17 @@
-(() => {
-    'use strict';
+function getSettings() {
+  const settings = {
+    appErrorPrefix: '[Angular Heroes Error] ',
+    appTitle: 'Angular Heroes',
+    version: '1.0.0'
+  };
 
-    angular
-        .module('ngaApp.core')
-        .constant('toastr', toastr)
-        .constant('toastTimeout', 1500)
-        .constant('settings', getSettings())
-        .constant('apiUrl', '//gateway.marvel.com/v1/public/')
-        .constant('apiKey', '<Your public key here>');
+  return settings;
+}
 
-    function getSettings() {
-        const settings = {
-            appErrorPrefix: '[Angular Heroes Error] ',
-            appTitle: 'Angular Heroes',
-            version: '1.0.0'
-        };
-
-        return settings;
-    }
-})();
+angular
+  .module('ngaApp.core')
+  .constant('toastr', toastr)
+  .constant('toastTimeout', 1500)
+  .constant('settings', getSettings())
+  .constant('apiUrl', '//gateway.marvel.com/v1/public/')
+  .constant('apiKey', '<Your public key here>');

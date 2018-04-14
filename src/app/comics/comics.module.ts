@@ -1,5 +1,1 @@
-(() => {
-    'use strict';
-
-    angular.module('ngaApp.comics', []);
-})();
+angular.module('ngaApp.comics', []);

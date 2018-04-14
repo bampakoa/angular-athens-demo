@@ -1,38 +1,29 @@
-(() => {
-    'use strict';
+class Logger {
 
-    angular
-        .module('blocks.logger')
-        .factory('logger', logger);
+  constructor(private $log, private toastr) {}
 
-    function logger($log, toastr) {
-        const service = {
-            error   : error,
-            info    : info,
-            success : success,
-            warning : warning,
-        };
+  error(message, data, title) {
+    this.toastr.error(message, title);
+    this.$log.error('Error: ' + message, data);
+  }
 
-        return service;
+  info(message, data, title) {
+    this.toastr.info(message, title);
+    this.$log.info('Info: ' + message, data);
+  }
 
-        function error(message, data, title) {
-            toastr.error(message, title);
-            $log.error('Error: ' + message, data);
-        }
+  success(message, data, title) {
+    this.toastr.success(message, title);
+    this.$log.info('Success: ' + message, data);
+  }
 
-        function info(message, data, title) {
-            toastr.info(message, title);
-            $log.info('Info: ' + message, data);
-        }
+  warning(message, data, title) {
+    this.toastr.warning(message, title);
+    this.$log.warn('Warning: ' + message, data);
+  }
 
-        function success(message, data, title) {
-            toastr.success(message, title);
-            $log.info('Success: ' + message, data);
-        }
+}
 
-        function warning(message, data, title) {
-            toastr.warning(message, title);
-            $log.warn('Warning: ' + message, data);
-        }
-    }
-})();
+angular
+  .module('blocks.logger')
+  .service('logger', Logger);

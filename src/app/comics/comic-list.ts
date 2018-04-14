@@ -1,33 +1,28 @@
-(() => {
+class ComicList {
+  character;
+  comics = [];
+  showProgress = false;
 
-    'use strict';
+  constructor(private comicService) {}
 
-    angular
-        .module('ngaApp.comics')
-        .component('ngaComicList', {
-            controller: ComicList,
-            controllerAs: 'vm',
-            bindings: {
-                character: '<'
-            },
-            templateUrl: 'app/comics/comic-list.html'
-        });
+  $onChanges() {
+    this.comics = [];
+    this.showProgress = true;
+    this.comicService.getComics(this.character.id).then(this.comicsGetComplete).finally(() => this.showProgress = false);
+  }
 
-    function ComicList(comicService) {
-        const vm = this;
-        vm.comics = [];
-        vm.showProgress = false;
-        vm.$onChanges = onChanges;
+  private comicsGetComplete = comics => {
+    this.comics = comics;
+    return this.comics;
+  }
+}
 
-        function onChanges() {
-            vm.comics = [];
-            vm.showProgress = true;
-            comicService.getComics(vm.character.id).then(comicsGetComplete).finally(() => vm.showProgress = false);
-        }
-
-        function comicsGetComplete(comics) {
-            vm.comics = comics;
-            return vm.comics;
-        }
-    }
-})();
+angular
+  .module('ngaApp.comics')
+  .component('ngaComicList', {
+    controller: ComicList,
+    bindings: {
+        character: '<'
+    },
+    templateUrl: 'app/comics/comic-list.html'
+  });

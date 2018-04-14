@@ -1,5 +1,1 @@
-(() => {
-    'use strict';
-
-    angular.module('ngaApp.quiz', []);
-})();
+angular.module('ngaApp.quiz', []);

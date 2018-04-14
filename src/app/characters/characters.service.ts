@@ -1,25 +1,18 @@
-(() => {
-    'use strict';
+class CharacterService {
 
-    angular
-        .module('ngaApp.characters')
-        .service('characterService', characterService);
+  constructor(private $resource, private $filter, private apiUrl) {}
 
-    function characterService($resource, $filter, apiUrl) {
-        const service = {
-            getCharacters: getCharacters,
-            getCharacterDetailsUrl: getCharacterDetailsUrl
-        };
+  getCharacterDetailsUrl(character) {
+    const detail = this.$filter('filter')(character.urls, {type: 'detail'});
+    return detail.length > 0 ? detail[0].url : 'http://marvel.com';
+  }
 
-        return service;
+  getCharacters(term) {
+    return this.$resource(this.apiUrl + 'characters').query({nameStartsWith: term}).$promise;
+  }
 
-        function getCharacters(term) {
-            return $resource(apiUrl + 'characters').query({nameStartsWith: term}).$promise;
-        }
+}
 
-        function getCharacterDetailsUrl(character) {
-            const detail = $filter('filter')(character.urls, {type: 'detail'});
-            return detail.length > 0 ? detail[0].url : 'http://marvel.com';
-        }
-    }
-})();
+angular
+  .module('ngaApp.characters')
+  .service('characterService', CharacterService);
