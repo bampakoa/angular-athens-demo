@@ -1,4 +1,5 @@
-function configureCoreRoutes($stateProvider, $urlRouterProvider, $locationProvider) {
+function configureCoreRoutes($stateProvider: angular.ui.IStateProvider, $urlRouterProvider: angular.ui.IUrlRouterProvider,
+                              $locationProvider: angular.ILocationProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider

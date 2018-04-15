@@ -1,7 +1,10 @@
+import { QuestionModel } from './question.model';
+import { Character } from '../core/character.model';
+
 declare var angular: angular.IAngularStatic;
 
 export class QuizService {
-  private questions = [
+  private questions: QuestionModel[] = [
     {
       no: 1,
       description: 'Would you sacrifice your own life to save the one you love the most?',
@@ -92,32 +95,32 @@ export class QuizService {
     }
   ];
 
-  constructor(private $resource, private $filter, private apiUrl) {}
+  constructor(private $resource: angular.resource.IResourceService, private $filter: any, private apiUrl: string) {}
 
-  getHero() {
-    const ranking = {};
+  getHero(): angular.IPromise<angular.resource.IResourceArray<Character>> {
+    const ranking: {[key: string]: number} = {};
 
     angular.forEach(this.questions, question => {
-        this.match((question.answer === 'yes') ? question.positive : question.negative, ranking);
+      this.match((question.answer === 'yes') ? question.positive : question.negative, ranking);
     });
 
-    const heroId = Object.keys(ranking).reduce((a, b) => ranking[a] > ranking[b] ? a : b);
+    const heroId = Object.keys(ranking).reduce((a: string, b: string) => ranking[a] > ranking[b] ? a : b);
 
-    return this.$resource(this.apiUrl + 'characters/' + heroId).query().$promise;
+    return this.$resource<Character>(this.apiUrl + 'characters/' + heroId).query().$promise;
   }
 
-  getQuestions() {
+  getQuestions(): QuestionModel[] {
     return this.questions;
   }
 
-  setAnswer(question, answer) {
-    const q = this.$filter('filter')(this.questions, {no: question.no});
+  setAnswer(question: QuestionModel, answer: 'yes' | 'no') {
+    const q: QuestionModel[] = this.$filter('filter')(this.questions, {no: question.no});
     if (q.length > 0) {
       q[0].answer = answer;
     }
   }
 
-  private match(arr, data) {
+  private match(arr: string[], data: {[key: string]: number}) {
     angular.forEach(arr, name => {
       if (!data[name]) {
         data[name] = 100 / arr.length;

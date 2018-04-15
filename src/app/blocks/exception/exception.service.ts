@@ -1,11 +1,13 @@
+import { Logger } from '../logger/logger';
+
 declare var angular: angular.IAngularStatic;
 
 export class Exception {
 
-  constructor(private logger) {}
+  constructor(private logger: Logger) {}
 
-  catcher(message) {
-    return reason => {
+  catcher(message: string) {
+    return (reason: string) => {
       this.logger.error(message, reason);
     };
   }

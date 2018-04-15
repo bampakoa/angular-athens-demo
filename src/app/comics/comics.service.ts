@@ -1,11 +1,13 @@
+import { Comic } from './comic.model';
+
 declare var angular: angular.IAngularStatic;
 
 export class ComicService {
 
-  constructor(private $resource, private apiUrl) {}
+  constructor(private $resource: angular.resource.IResourceService, private apiUrl: string) {}
 
-  getComics(characterId) {
-      return this.$resource(this.apiUrl + 'characters/' + characterId + '/comics').query().$promise;
+  getComics(characterId: number): angular.IPromise<angular.resource.IResourceArray<Comic[]>> {
+      return this.$resource<Comic[]>(this.apiUrl + 'characters/' + characterId + '/comics').query().$promise;
   }
 
 }

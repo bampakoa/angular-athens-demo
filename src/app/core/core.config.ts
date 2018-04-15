@@ -1,4 +1,9 @@
-function configureCore($compileProvider, $logProvider, $httpProvider, exceptionHandlerProvider, settings, toastr, toastTimeout) {
+import { ExceptionHandlerProvider } from '../blocks/exception/exception-handler.provider';
+
+declare var angular: angular.IAngularStatic;
+
+function configureCore($compileProvider: angular.ICompileProvider, $logProvider: angular.ILogProvider, $httpProvider: angular.IHttpProvider,
+                        exceptionHandlerProvider: ExceptionHandlerProvider, settings: any, toastr: Toastr, toastTimeout: number) {
   // disable debug info and log messages
   $compileProvider.debugInfoEnabled(false);
   $logProvider.debugEnabled(false);

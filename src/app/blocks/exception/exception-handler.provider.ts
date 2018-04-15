@@ -1,6 +1,8 @@
+import { Logger } from '../logger/logger';
+
 declare var angular: angular.IAngularStatic;
 
-export class ExceptionHandlerProvider {
+export class ExceptionHandlerProvider implements angular.IServiceProvider {
   config = {
     appErrorPrefix: undefined
   };
@@ -9,23 +11,27 @@ export class ExceptionHandlerProvider {
     return {config: this.config};
   }
 
-  configure(appErrorPrefix) {
+  configure(appErrorPrefix?: string) {
     this.config.appErrorPrefix = appErrorPrefix;
   }
 }
 
-function config($provide) {
+function config($provide: angular.auto.IProvideService) {
   $provide.decorator('$exceptionHandler', extendExceptionHandler);
 }
 
-function extendExceptionHandler($delegate, exceptionHandler, logger) {
-  return (exception, cause) => {
+function extendExceptionHandler($delegate: angular.IExceptionHandlerService, exceptionHandler: ExceptionHandlerProvider, logger: Logger) {
+  return (exception: DOMException, cause: string) => {
     const appErrorPrefix = exceptionHandler.config.appErrorPrefix || '';
-    const errorData = {exception: exception, cause: cause};
-    exception.message = appErrorPrefix + exception.message;
+    const errorData = {
+      exception: exception,
+      cause: cause
+    };
+
     $delegate(exception, cause);
+
     if (exception.message) {
-      logger.error(exception.message, errorData);
+      logger.error(exception.message, errorData, appErrorPrefix);
     }
   };
 }

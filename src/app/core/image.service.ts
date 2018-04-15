@@ -1,7 +1,9 @@
+import { Thumbnail } from './thumbnail.model';
+
 declare var angular: angular.IAngularStatic;
 
 export class ImageService {
-  getImage(variant, thumbnail) {
+  getImage(variant: string, thumbnail: Thumbnail): string {
     return thumbnail.path + '/' + variant + '.' + thumbnail.extension;
   }
 }
