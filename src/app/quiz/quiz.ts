@@ -1,10 +1,14 @@
+import { QuestionModel } from './question.model';
+import { QuizService } from './quiz.service';
+import { Character } from '../core/character.model';
+
 declare var angular: angular.IAngularStatic;
 
-export class Quiz {
-  hero;
-  questions = [];
+export class Quiz implements angular.IComponentController {
+  hero: Character;
+  questions: QuestionModel[] = [];
 
-  constructor(private $filter, private $mdToast, private quizService) {}
+  constructor(private $filter: any, private $mdToast: angular.material.IToastService, private quizService: QuizService) {}
 
   $onInit() {
     this.questions = this.quizService.getQuestions();
@@ -15,7 +19,7 @@ export class Quiz {
   }
 
   submit() {
-    const notCompleted = this.$filter('filter')(this.questions, {answer: null}, true);
+    const notCompleted: QuestionModel[] = this.$filter('filter')(this.questions, {answer: null});
     if (notCompleted.length > 0) {
       this.$mdToast.show(
         this.$mdToast.simple()

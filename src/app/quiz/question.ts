@@ -1,10 +1,13 @@
+import { QuestionModel } from './question.model';
+import { QuizService } from './quiz.service';
+
 declare var angular: angular.IAngularStatic;
 
 export class Question {
-  answer;
-  question;
+  answer: 'yes' | 'no';
+  question: QuestionModel;
 
-  constructor(private quizService) {}
+  constructor(private quizService: QuizService) {}
 
   setAnswer() {
     this.quizService.setAnswer(this.question, this.answer);

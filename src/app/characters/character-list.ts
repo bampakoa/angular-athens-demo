@@ -1,14 +1,17 @@
+import { CharacterService } from './characters.service';
+import { Character } from '../core/character.model';
+
 declare var angular: angular.IAngularStatic;
 
 export class CharacterList {
-  characters = [];
+  characters: Character[] = [];
   isVisible = false;
-  selectedCharacter;
+  selectedCharacter: Character;
   showProgress = false;
 
-  constructor(private $mdSidenav, private characterService) {}
+  constructor(private $mdSidenav: angular.material.ISidenavService, private characterService: CharacterService) {}
 
-  search(name) {
+  search(name: string) {
     if (name) {
       this.isVisible = false;
       this.showProgress = true;
@@ -19,12 +22,12 @@ export class CharacterList {
     }
   }
 
-  selectCharacter(character) {
+  selectCharacter(character: Character) {
     this.selectedCharacter = character;
     this.$mdSidenav('sidebar').toggle();
   }
 
-  private charactersGetComplete = (characters) => {
+  private charactersGetComplete = (characters: any) => {
     this.characters = characters;
     return this.characters;
   }

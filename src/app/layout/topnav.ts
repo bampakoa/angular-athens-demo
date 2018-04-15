@@ -1,9 +1,9 @@
 declare var angular: angular.IAngularStatic;
 
-export class Topnav {
+export class Topnav implements angular.IComponentController {
   title = '';
 
-  constructor(private settings) {}
+  constructor(private settings: any) {}
 
   $onInit() {
     this.title = this.settings.appTitle;
