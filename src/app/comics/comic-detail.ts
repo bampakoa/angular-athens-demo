@@ -1,14 +1,14 @@
-import { ImageService } from '../core/image.service';
+import { ContextService } from '../core/core.service';
 import { Thumbnail } from '../core/thumbnail.model';
 
 declare var angular: angular.IAngularStatic;
 
 export class ComicDetail {
 
-  constructor(private imageService: ImageService) {}
+  constructor(private contextService: ContextService) {}
 
   getComicImage(thumbnail: Thumbnail): string {
-    return this.imageService.getImage('portrait_fantastic', thumbnail);
+    return this.contextService.getImage('portrait_fantastic', thumbnail);
   }
 
 }

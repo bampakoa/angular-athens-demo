@@ -1,24 +1,23 @@
-import { CharacterService } from '../characters/characters.service';
 import { Character } from '../core/character.model';
-import { ImageService } from '../core/image.service';
+import { ContextService } from '../core/core.service';
 import { Thumbnail } from '../core/thumbnail.model';
 
 declare var angular: angular.IAngularStatic;
 
 export class CharacterDetail {
 
-  constructor(private imageService: ImageService, private characterService: CharacterService) {}
+  constructor(private contextService: ContextService) {}
 
   getAvatar(thumbnail: Thumbnail): string {
-    return this.imageService.getImage('standard_medium', thumbnail);
+    return this.contextService.getImage('standard_medium', thumbnail);
   }
 
   getCharacterImage(thumbnail: Thumbnail): string {
-    return this.imageService.getImage('portrait_uncanny', thumbnail);
+    return this.contextService.getImage('portrait_uncanny', thumbnail);
   }
 
   getCharacterLink(character: Character): string {
-    return this.characterService.getCharacterDetailsUrl(character);
+    return this.contextService.getCharacterDetailsUrl(character);
   }
 
 }

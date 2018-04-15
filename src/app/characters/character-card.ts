@@ -1,6 +1,5 @@
-import { CharacterService } from './characters.service';
 import { Character } from '../core/character.model';
-import { ImageService } from '../core/image.service';
+import { ContextService } from '../core/core.service';
 import { Thumbnail } from '../core/thumbnail.model';
 
 declare var angular: angular.IAngularStatic;
@@ -8,14 +7,14 @@ declare var angular: angular.IAngularStatic;
 export class CharacterCard {
   onSelect: any;
 
-  constructor(private imageService: ImageService, private characterService: CharacterService) {}
+  constructor(private contextService: ContextService) {}
 
   getCharacterImage(thumbnail: Thumbnail): string {
-    return this.imageService.getImage('landscape_incredible', thumbnail);
+    return this.contextService.getImage('landscape_incredible', thumbnail);
   }
 
   getCharacterLink(character: Character): string {
-    return this.characterService.getCharacterDetailsUrl(character);
+    return this.contextService.getCharacterDetailsUrl(character);
   }
 
   showCharacter(character: Character) {
