@@ -1,4 +1,6 @@
-class Copyright {
+declare var angular: angular.IAngularStatic;
+
+export class Copyright {
   version = '';
 
   constructor(private settings) {}

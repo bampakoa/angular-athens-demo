@@ -1,4 +1,6 @@
-class CharacterDetail {
+declare var angular: angular.IAngularStatic;
+
+export class CharacterDetail {
 
   constructor(private imageService, private characterService) {}
 

@@ -1,4 +1,6 @@
-class ComicList {
+declare var angular: angular.IAngularStatic;
+
+export class ComicList {
   character;
   comics = [];
   showProgress = false;

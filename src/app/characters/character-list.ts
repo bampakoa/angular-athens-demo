@@ -1,4 +1,6 @@
-class CharacterList {
+declare var angular: angular.IAngularStatic;
+
+export class CharacterList {
   characters = [];
   isVisible = false;
   selectedCharacter;

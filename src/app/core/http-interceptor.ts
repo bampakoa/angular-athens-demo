@@ -1,4 +1,6 @@
-class HttpInterceptor {
+declare var angular: angular.IAngularStatic;
+
+export class HttpInterceptor {
 
   constructor(private $q, private apiUrl, private apiKey, private exception) {}
 

@@ -1,4 +1,6 @@
-class Exception {
+declare var angular: angular.IAngularStatic;
+
+export class Exception {
 
   constructor(private logger) {}
 

@@ -1,4 +1,6 @@
-class ComicDetail {
+declare var angular: angular.IAngularStatic;
+
+export class ComicDetail {
 
   constructor(private imageService) {}
 

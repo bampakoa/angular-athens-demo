@@ -1,5 +1,6 @@
+declare var angular: angular.IAngularStatic;
 
-class QuizService {
+export class QuizService {
   private questions = [
     {
       no: 1,

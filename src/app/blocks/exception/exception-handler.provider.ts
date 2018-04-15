@@ -1,4 +1,6 @@
-class ExceptionHandlerProvider {
+declare var angular: angular.IAngularStatic;
+
+export class ExceptionHandlerProvider {
   config = {
     appErrorPrefix: undefined
   };

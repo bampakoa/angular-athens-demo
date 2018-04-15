@@ -1,4 +1,6 @@
-class CharacterCard {
+declare var angular: angular.IAngularStatic;
+
+export class CharacterCard {
   onSelect;
 
   constructor(private imageService, private characterService) {}

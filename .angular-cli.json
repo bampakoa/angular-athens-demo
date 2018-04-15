@@ -19,21 +19,14 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-          "../bower_components/angular-material/angular-material.css",
-          "../bower_components/toastr/toastr.css",
+          "../node_modules/angular-material/angular-material.css",
+          "../node_modules/toastr/toastr.scss",
           "styles.css",
-          "../bower_components/components-font-awesome/css/font-awesome.css"
+          "../node_modules/components-font-awesome/css/font-awesome.css"
         ],
         "scripts": [
-          "../bower_components/jquery/dist/jquery.js",
-          "../bower_components/toastr/toastr.js",
-          "../bower_components/angular/angular.js",
-          "../bower_components/angular-animate/angular-animate.js",
-          "../bower_components/angular-aria/angular-aria.js",
-          "../bower_components/angular-material/angular-material.js",
-          "../bower_components/angular-resource/angular-resource.js",
-          "../bower_components/angular-sanitize/angular-sanitize.js",
-          "../bower_components/angular-ui-router/release/angular-ui-router.js"
+          "../node_modules/jquery/dist/jquery.js",
+          "../node_modules/toastr/toastr.js"
         ],
         "environmentSource": "environments/environment.ts",
         "environments": {

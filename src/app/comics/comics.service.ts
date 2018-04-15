@@ -1,4 +1,6 @@
-class ComicService {
+declare var angular: angular.IAngularStatic;
+
+export class ComicService {
 
   constructor(private $resource, private apiUrl) {}
 

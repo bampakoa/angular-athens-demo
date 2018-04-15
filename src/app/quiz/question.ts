@@ -1,4 +1,6 @@
-class Question {
+declare var angular: angular.IAngularStatic;
+
+export class Question {
   answer;
   question;
 

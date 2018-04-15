@@ -1,4 +1,6 @@
-class Topnav {
+declare var angular: angular.IAngularStatic;
+
+export class Topnav {
   title = '';
 
   constructor(private settings) {}

@@ -1,3 +1,11 @@
+require('angular');
+require('angular-animate');
+require('angular-aria');
+require('angular-material');
+require('angular-resource');
+require('angular-sanitize');
+require('angular-ui-router');
+
 require('./blocks/exception/exception.module');
 require('./blocks/exception/exception.service');
 require('./blocks/exception/exception-handler.provider');

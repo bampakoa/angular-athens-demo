@@ -1,4 +1,6 @@
-class Shell {}
+declare var angular: angular.IAngularStatic;
+
+export class Shell {}
 
 angular
   .module('ngaApp.layout')

@@ -1,4 +1,6 @@
-class Quiz {
+declare var angular: angular.IAngularStatic;
+
+export class Quiz {
   hero;
   questions = [];
 

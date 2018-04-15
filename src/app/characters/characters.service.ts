@@ -1,4 +1,6 @@
-class CharacterService {
+declare var angular: angular.IAngularStatic;
+
+export class CharacterService {
 
   constructor(private $resource, private $filter, private apiUrl) {}
 

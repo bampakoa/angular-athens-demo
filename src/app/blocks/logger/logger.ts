@@ -1,4 +1,6 @@
-class Logger {
+declare var angular: angular.IAngularStatic;
+
+export class Logger {
 
   constructor(private $log, private toastr) {}
 

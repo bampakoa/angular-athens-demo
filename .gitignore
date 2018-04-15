@@ -8,7 +8,6 @@
 /src/app/templates.ts
 
 # dependencies
-/bower_components
 /node_modules
 
 # IDEs and editors
