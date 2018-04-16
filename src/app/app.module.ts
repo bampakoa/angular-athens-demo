@@ -1,6 +1,9 @@
-import { NgModule } from '@angular/core';
+import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { UpgradeModule } from '@angular/upgrade/static';
+
+import { loggerServiceProvider } from './ajs-upgraded-providers';
+import { AppErrorHandler } from './app-error-handler';
 
 declare var angular: angular.IAngularStatic;
 
@@ -8,6 +11,10 @@ declare var angular: angular.IAngularStatic;
   imports: [
     BrowserModule,
     UpgradeModule
+  ],
+  providers: [
+    loggerServiceProvider,
+    { provide: ErrorHandler, useClass: AppErrorHandler }
   ]
 })
 export class AppModule {
@@ -25,9 +32,6 @@ require('angular-resource');
 require('angular-sanitize');
 require('angular-ui-router');
 
-require('./blocks/exception/exception.module');
-require('./blocks/exception/exception.service');
-require('./blocks/exception/exception-handler.provider');
 require('./blocks/logger/logger.module');
 require('./blocks/logger/logger');
 require('./characters/characters.module');

@@ -3,7 +3,6 @@ angular.module('ngaApp.core', [
     'ngResource',
 
     // Custom modules
-    'blocks.exception',
     'blocks.logger',
 
     // 3rd Party Modules

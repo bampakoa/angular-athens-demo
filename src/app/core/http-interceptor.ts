@@ -1,11 +1,11 @@
-import { Exception } from '../blocks/exception/exception.service';
+import { Logger } from '../blocks/logger/logger';
 import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;
 
 export class HttpInterceptor implements angular.IHttpInterceptor {
 
-  constructor(private $q: angular.IQService, private exception: Exception) {}
+  constructor(private $q: angular.IQService, private logger: Logger) {}
 
   request = (config: angular.IRequestConfig) => {
     if (this.isApiCall(config.url)) {
@@ -28,7 +28,7 @@ export class HttpInterceptor implements angular.IHttpInterceptor {
 
   responseError = (rejection: any) => {
     if (this.isApiCall(rejection.config.url)) {
-      this.exception.catcher(rejection.data.code + ':' + rejection.data.message)(rejection.data);
+      this.logger.error(rejection.data.message, rejection.data, rejection.data.code);
     }
 
     return this.$q.reject(rejection);
