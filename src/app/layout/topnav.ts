@@ -1,12 +1,12 @@
+import { environment } from '../../environments/environment';
+
 declare var angular: angular.IAngularStatic;
 
 export class Topnav implements angular.IComponentController {
   title = '';
 
-  constructor(private settings: any) {}
-
   $onInit() {
-    this.title = this.settings.appTitle;
+    this.title = environment.settings.appTitle;
   }
 }
 

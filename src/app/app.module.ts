@@ -40,7 +40,6 @@ require('./comics/comic-list');
 require('./comics/comics.service');
 require('./core/core.module');
 require('./core/core.config');
-require('./core/core.constants');
 require('./core/core.routes');
 require('./core/core.service');
 require('./core/http-interceptor');

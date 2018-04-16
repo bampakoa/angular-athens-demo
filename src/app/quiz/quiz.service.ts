@@ -1,5 +1,6 @@
 import { QuestionModel } from './question.model';
 import { Character } from '../core/character.model';
+import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;
 
@@ -95,7 +96,7 @@ export class QuizService {
     }
   ];
 
-  constructor(private $resource: angular.resource.IResourceService, private $filter: any, private apiUrl: string) {}
+  constructor(private $resource: angular.resource.IResourceService, private $filter: any) {}
 
   getHero(): angular.IPromise<angular.resource.IResourceArray<Character>> {
     const ranking: {[key: string]: number} = {};
@@ -106,7 +107,7 @@ export class QuizService {
 
     const heroId = Object.keys(ranking).reduce((a: string, b: string) => ranking[a] > ranking[b] ? a : b);
 
-    return this.$resource<Character>(this.apiUrl + 'characters/' + heroId).query().$promise;
+    return this.$resource<Character>(environment.apiUrl + 'characters/' + heroId).query().$promise;
   }
 
   getQuestions(): QuestionModel[] {

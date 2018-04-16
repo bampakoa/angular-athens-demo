@@ -4,5 +4,12 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://gateway.marvel.com/v1/public/',
+  apiKey: '<Your public key here>',
+  settings: {
+    appErrorPrefix: '[Angular Heroes Error] ',
+    appTitle: 'Angular Heroes',
+    version: '1.0.0'
+  }
 };

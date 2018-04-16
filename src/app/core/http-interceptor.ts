@@ -1,17 +1,18 @@
 import { Exception } from '../blocks/exception/exception.service';
+import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;
 
 export class HttpInterceptor implements angular.IHttpInterceptor {
 
-  constructor(private $q: angular.IQService, private apiUrl: string, private apiKey: string, private exception: Exception) {}
+  constructor(private $q: angular.IQService, private exception: Exception) {}
 
   request = (config: angular.IRequestConfig) => {
     if (this.isApiCall(config.url)) {
       if (!config.params) {
         config.params = {};
       }
-      config.params.apikey = this.apiKey;
+      config.params.apikey = environment.apiKey;
     }
 
     return config;
@@ -34,7 +35,7 @@ export class HttpInterceptor implements angular.IHttpInterceptor {
   }
 
   private isApiCall(url: string) {
-    return url.indexOf(this.apiUrl) !== -1;
+    return url.indexOf(environment.apiUrl) !== -1;
   }
 
 }

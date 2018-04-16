@@ -1,12 +1,12 @@
+import { environment } from '../../environments/environment';
+
 declare var angular: angular.IAngularStatic;
 
 export class Copyright implements angular.IComponentController {
   version = '';
 
-  constructor(private settings: any) {}
-
   $onInit() {
-    this.version = this.settings.version;
+    this.version = environment.settings.version;
   }
 }
 

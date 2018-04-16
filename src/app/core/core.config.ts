@@ -1,18 +1,19 @@
 import { ExceptionHandlerProvider } from '../blocks/exception/exception-handler.provider';
+import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;
 
 function configureCore($compileProvider: angular.ICompileProvider, $logProvider: angular.ILogProvider, $httpProvider: angular.IHttpProvider,
-                        exceptionHandlerProvider: ExceptionHandlerProvider, settings: any, toastr: Toastr, toastTimeout: number) {
+                        exceptionHandlerProvider: ExceptionHandlerProvider) {
   // disable debug info and log messages
   $compileProvider.debugInfoEnabled(false);
   $logProvider.debugEnabled(false);
 
   // add a prefix to application exception messages
-  exceptionHandlerProvider.configure(settings.appErrorPrefix);
+  exceptionHandlerProvider.configure(environment.settings.appErrorPrefix);
 
   // toastr configuration
-  toastr.options.timeOut = toastTimeout;
+  toastr.options.timeOut = 1500;
 
   $httpProvider.interceptors.push('httpInterceptor');
 }
