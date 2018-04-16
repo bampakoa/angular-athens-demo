@@ -1,31 +1,32 @@
+import { Injectable } from '@angular/core';
+import { downgradeInjectable } from '@angular/upgrade/static';
+
 declare var angular: angular.IAngularStatic;
 
+@Injectable()
 export class Logger {
-
-  constructor(private $log: angular.ILogService) {}
-
   error(message: string, data: any, title?: string) {
     toastr.error(message, title);
-    this.$log.error('Error: ' + message, data);
+    console.error('Error: ' + message, data);
   }
 
   info(message: string, data: any, title: string) {
     toastr.info(message, title);
-    this.$log.info('Info: ' + message, data);
+    console.log('Info: ' + message, data);
   }
 
   success(message: string, data: any, title: string) {
     toastr.success(message, title);
-    this.$log.info('Success: ' + message, data);
+    console.log('Success: ' + message, data);
   }
 
   warning(message: string, data: any, title: string) {
     toastr.warning(message, title);
-    this.$log.warn('Warning: ' + message, data);
+    console.warn('Warning: ' + message, data);
   }
 
 }
 
 angular
-  .module('blocks.logger')
-  .service('logger', Logger);
+  .module('ngaApp.core')
+  .service('logger', downgradeInjectable(Logger));

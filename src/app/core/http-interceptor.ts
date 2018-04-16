@@ -1,4 +1,4 @@
-import { Logger } from '../blocks/logger/logger';
+import { Logger } from './logger.service';
 import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;

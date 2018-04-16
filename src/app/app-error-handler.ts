@@ -1,15 +1,15 @@
-import { ErrorHandler, Injectable, Injector } from '@angular/core';
+import { ErrorHandler, Injectable } from '@angular/core';
 
-import { LoggerService } from './ajs-upgraded-providers';
+import { Logger } from './core/logger.service';
 import { environment } from '../environments/environment';
 
 @Injectable()
 export class AppErrorHandler implements ErrorHandler {
 
-  constructor(private injector: Injector) {}
+  constructor(private logger: Logger) {}
 
   handleError(error: Error) {
-    this.injector.get(LoggerService).error(error.message, error, environment.settings.appErrorPrefix);
+    this.logger.error(error.message, error, environment.settings.appErrorPrefix);
   }
 
 }
