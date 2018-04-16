@@ -1,5 +1,5 @@
-# Bootstrap as a hybrid application
-Use the **UpgradeModule** to bootstrap the application in hybrid mode. AngularJS and Angular run in parallel.
+# Upgrade helper classes
+Use environment files to define application settings and create a global application error handler.
 
 ## Setup
 
