@@ -23,6 +23,7 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@angular/upgrade": "^5.2.0",
     "angular": "1.6.9",
     "angular-animate": "1.6.9",
     "angular-aria": "1.6.9",

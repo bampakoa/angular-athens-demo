@@ -1,3 +1,22 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { UpgradeModule } from '@angular/upgrade/static';
+
+declare var angular: angular.IAngularStatic;
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    UpgradeModule
+  ]
+})
+export class AppModule {
+  constructor(private upgrade: UpgradeModule) { }
+  ngDoBootstrap() {
+    this.upgrade.bootstrap(document.body, ['ngaApp']);
+  }
+}
+
 require('angular');
 require('angular-animate');
 require('angular-aria');

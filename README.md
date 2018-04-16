@@ -1,5 +1,5 @@
-# Move into Typescript
-Introduce Typescript and use a module loader to import all necessary libraries.
+# Bootstrap as a hybrid application
+Use the **UpgradeModule** to bootstrap the application in hybrid mode. AngularJS and Angular run in parallel.
 
 ## Setup
 
