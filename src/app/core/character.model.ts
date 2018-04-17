@@ -8,7 +8,7 @@ export interface Character {
   urls: Url[];
 }
 
-export interface Url {
+interface Url {
   type: string;
   url: string;
 }

@@ -1,9 +1,16 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { downgradeInjectable } from '@angular/upgrade/static';
+import { map, catchError } from 'rxjs/operators';
+
 import { QuestionModel } from './question.model';
 import { Character } from '../core/character.model';
+import { ContextService } from '../core/core.service';
 import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;
 
+@Injectable()
 export class QuizService {
   private questions: QuestionModel[] = [
     {
@@ -96,18 +103,24 @@ export class QuizService {
     }
   ];
 
-  constructor(private $resource: angular.resource.IResourceService, private $filter: any) {}
+  constructor(private http: HttpClient, private contextService: ContextService) {}
 
-  getHero(): angular.IPromise<angular.resource.IResourceArray<Character>> {
+  getHero(): Promise<Character> {
     const ranking: {[key: string]: number} = {};
 
-    angular.forEach(this.questions, question => {
+    this.questions.forEach(question => {
       this.match((question.answer === 'yes') ? question.positive : question.negative, ranking);
     });
 
     const heroId = Object.keys(ranking).reduce((a: string, b: string) => ranking[a] > ranking[b] ? a : b);
 
-    return this.$resource<Character>(environment.apiUrl + 'characters/' + heroId).query().$promise;
+    return this.http
+      .get<Character>(environment.apiUrl + 'characters/' + heroId)
+      .pipe(
+        map((response: any) => response.data.results[0]),
+        catchError(this.contextService.handleError)
+      )
+      .toPromise();
   }
 
   getQuestions(): QuestionModel[] {
@@ -115,14 +128,11 @@ export class QuizService {
   }
 
   setAnswer(question: QuestionModel, answer: 'yes' | 'no') {
-    const q: QuestionModel[] = this.$filter('filter')(this.questions, {no: question.no});
-    if (q.length > 0) {
-      q[0].answer = answer;
-    }
+    this.questions.find(qs => qs.no === question.no).answer = answer;
   }
 
   private match(arr: string[], data: {[key: string]: number}) {
-    angular.forEach(arr, name => {
+    arr.forEach(name => {
       if (!data[name]) {
         data[name] = 100 / arr.length;
       } else {
@@ -134,4 +144,4 @@ export class QuizService {
 
 angular
   .module('ngaApp.quiz')
-  .service('quizService', QuizService);
+  .service('quizService', downgradeInjectable(QuizService));

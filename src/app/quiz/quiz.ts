@@ -28,11 +28,11 @@ export class Quiz implements angular.IComponentController {
               .position('top right')
               .highlightAction(true));
     } else {
-      this.quizService.getHero().then(heroes => {
+      this.quizService.getHero().then(hero => {
             angular.forEach(this.questions, question => {
                 question.answer = null;
             });
-            this.hero = heroes[0];
+            this.hero = hero;
         });
     }
   }

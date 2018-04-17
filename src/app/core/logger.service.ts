@@ -1,7 +1,4 @@
 import { Injectable } from '@angular/core';
-import { downgradeInjectable } from '@angular/upgrade/static';
-
-declare var angular: angular.IAngularStatic;
 
 @Injectable()
 export class Logger {
@@ -24,9 +21,4 @@ export class Logger {
     toastr.warning(message, title);
     console.warn('Warning: ' + message, data);
   }
-
 }
-
-angular
-  .module('ngaApp.core')
-  .service('logger', downgradeInjectable(Logger));

@@ -14,10 +14,11 @@ export class ComicList implements angular.IComponentController {
   $onChanges() {
     this.comics = [];
     this.showProgress = true;
-    this.comicService.getComics(this.character.id).then(this.comicsGetComplete).finally(() => this.showProgress = false);
+    this.comicService.getComics(this.character.id).then(this.comicsGetComplete, () => this.showProgress = false);
   }
 
-  private comicsGetComplete = (comics: any) => {
+  private comicsGetComplete = (comics: Comic[]) => {
+    this.showProgress = false;
     this.comics = comics;
     return this.comics;
   }

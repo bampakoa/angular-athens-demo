@@ -15,7 +15,7 @@ export class CharacterList {
     if (name) {
       this.isVisible = false;
       this.showProgress = true;
-      this.characterService.getCharacters(name).then(this.charactersGetComplete).finally(() => this.showProgress = false);
+      this.characterService.getCharacters(name).then(this.charactersGetComplete, () => this.showProgress = false);
     } else {
       this.showProgress = false;
       this.characters = [];
@@ -27,7 +27,8 @@ export class CharacterList {
     this.$mdSidenav('sidebar').toggle();
   }
 
-  private charactersGetComplete = (characters: any) => {
+  private charactersGetComplete = (characters: Character[]) => {
+    this.showProgress = false;
     this.characters = characters;
     return this.characters;
   }

@@ -1,18 +1,31 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { downgradeInjectable } from '@angular/upgrade/static';
+import { catchError, map } from 'rxjs/operators';
+
 import { Comic } from './comic.model';
+import { ContextService } from '../core/core.service';
 import { environment } from '../../environments/environment';
 
 declare var angular: angular.IAngularStatic;
 
+@Injectable()
 export class ComicService {
 
-  constructor(private $resource: angular.resource.IResourceService) {}
+  constructor(private http: HttpClient, private contextService: ContextService) {}
 
-  getComics(characterId: number): angular.IPromise<angular.resource.IResourceArray<Comic[]>> {
-      return this.$resource<Comic[]>(environment.apiUrl + 'characters/' + characterId + '/comics').query().$promise;
+  getComics(characterId: number): Promise<Comic[]> {
+      return this.http
+        .get<Comic[]>(environment.apiUrl + 'characters/' + characterId + '/comics')
+        .pipe(
+          map((response: any) => response.data.results),
+          catchError(this.contextService.handleError)
+        )
+        .toPromise();
   }
 
 }
 
 angular
   .module('ngaApp.comics')
-  .service('comicService', ComicService);
+  .service('comicService', downgradeInjectable(ComicService));
