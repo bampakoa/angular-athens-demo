@@ -1,5 +1,5 @@
-# Upgrade helper classes
-Use environment files to define application settings and create a global application error handler.
+# Upgrade services
+Use **downgradeInjectable** method to upgrade services and use them in AngularJS components.
 
 ## Setup
 
