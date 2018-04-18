@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpgradeModule } from '@angular/upgrade/static';
 
 import { stateServiceProvider } from './ajs-upgraded-providers';
+import { AppComponent } from './app.component';
 import { AppErrorHandler } from './app-error-handler';
 import { AuthInterceptor } from './auth-interceptor.service';
 import { CharacterModule } from './characters/characters.module';
@@ -51,17 +52,20 @@ require('./characters/characters.module');
 require('./core/core.module');
 require('./core/core.config');
 require('./core/core.routes');
-require('./layout/layout.module');
-require('./layout/copyright');
-require('./layout/shell');
-require('./layout/topnav');
 require('./quiz/quiz.module');
 require('./templates');
 
 angular
   .module('ngaApp', [
       'ngaApp.core',
-      'ngaApp.layout',
       'ngaApp.characters',
       'ngaApp.quiz'
   ]);
+
+
+angular
+  .module('ngaApp')
+  .component('appRoot', {
+    controller: AppComponent,
+    templateUrl: 'app/app.component.html'
+  });
