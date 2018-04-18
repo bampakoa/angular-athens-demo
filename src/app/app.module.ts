@@ -9,6 +9,7 @@ import { CharacterModule } from './characters/characters.module';
 import { ComicsModule } from './comics/comics.module';
 import { CoreModule } from './core/core.module';
 import { QuizModule } from './quiz/quiz.module';
+import { SharedModule } from './shared/shared.module';
 
 declare var angular: angular.IAngularStatic;
 
@@ -20,6 +21,7 @@ declare var angular: angular.IAngularStatic;
     CoreModule,
     HttpClientModule,
     QuizModule,
+    SharedModule,
     UpgradeModule
   ],
   providers: [
@@ -61,8 +63,8 @@ require('./layout/topnav');
 require('./quiz/quiz.module');
 require('./quiz/question');
 require('./quiz/quiz');
-require('./widgets/widgets.module');
-require('./widgets/character-detail');
+require('./shared/shared.module');
+require('./shared/character-detail/character-detail.component');
 require('./templates');
 
 angular

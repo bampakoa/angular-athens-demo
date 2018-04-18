@@ -1,3 +1,5 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 .md-icon-button img {
   width: 24px;
   height: 24px;

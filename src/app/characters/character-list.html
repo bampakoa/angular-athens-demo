@@ -18,7 +18,7 @@
     <md-content layout-padding>
             <md-tabs md-dynamic-height md-border-bottom>
                 <md-tab label="Details">
-                    <nga-character-detail character="$ctrl.selectedCharacter"></nga-character-detail>
+                    <nga-character-detail [character]="$ctrl.selectedCharacter"></nga-character-detail>
                 </md-tab>
                 <md-tab label="Comics">
                     <nga-comic-list ng-if="$ctrl.selectedCharacter" character="$ctrl.selectedCharacter"></nga-comic-list>
