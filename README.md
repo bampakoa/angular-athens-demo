@@ -1,5 +1,5 @@
 # Upgrade services
-Use **downgradeInjectable** method to upgrade services and use them in AngularJS components.
+Use **downgradeComponent** method to upgrade components and use them in AngularJS context.
 
 ## Setup
 
