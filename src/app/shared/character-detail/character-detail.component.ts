@@ -1,10 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { downgradeComponent } from '@angular/upgrade/static';
 
 import { Character } from '../../core/character.model';
 import { ContextService } from '../../core/core.service';
-
-declare var angular: angular.IAngularStatic;
 
 @Component({
   selector: 'app-character-detail',
@@ -27,7 +24,3 @@ export class CharacterDetailComponent {
     return this.contextService.getCharacterDetailsUrl(this.character);
   }
 }
-
-angular
-  .module('ngaApp.widgets')
-  .directive('ngaCharacterDetail', downgradeComponent({component: CharacterDetailComponent}));

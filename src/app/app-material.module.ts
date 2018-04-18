@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatProgressBarModule,
-          MatProgressSpinnerModule, MatSidenavModule, MatTabsModule} from '@angular/material';
+import { MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule,
+          MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSidenavModule, MatTabsModule} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -10,8 +10,10 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, 
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatRadioModule,
     MatSidenavModule,
     MatTabsModule
   ],
@@ -22,8 +24,10 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatGridListModule, 
     MatGridListModule,
     MatIconModule,
     MatInputModule,
+    MatListModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatRadioModule,
     MatSidenavModule,
     MatTabsModule
   ]

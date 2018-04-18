@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UpgradeModule } from '@angular/upgrade/static';
 
+import { stateServiceProvider } from './ajs-upgraded-providers';
 import { AppErrorHandler } from './app-error-handler';
 import { AuthInterceptor } from './auth-interceptor.service';
 import { CharacterModule } from './characters/characters.module';
@@ -23,6 +24,7 @@ declare var angular: angular.IAngularStatic;
     UpgradeModule
   ],
   providers: [
+    stateServiceProvider,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
@@ -54,17 +56,12 @@ require('./layout/copyright');
 require('./layout/shell');
 require('./layout/topnav');
 require('./quiz/quiz.module');
-require('./quiz/question');
-require('./quiz/quiz');
-require('./shared/shared.module');
-require('./shared/character-detail/character-detail.component');
 require('./templates');
 
 angular
   .module('ngaApp', [
       'ngaApp.core',
       'ngaApp.layout',
-      'ngaApp.widgets',
       'ngaApp.characters',
       'ngaApp.quiz'
   ]);
