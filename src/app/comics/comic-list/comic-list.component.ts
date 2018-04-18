@@ -1,11 +1,8 @@
 import { Component, Input, OnChanges } from '@angular/core';
-import { downgradeComponent } from '@angular/upgrade/static';
 
 import { Comic } from '../comic.model';
 import { ComicService } from '../comics.service';
 import { Character } from '../../core/character.model';
-
-declare var angular: angular.IAngularStatic;
 
 @Component({
   selector: 'app-comic-list',
@@ -33,7 +30,3 @@ export class ComicListComponent implements OnChanges {
     return this.comics;
   }
 }
-
-angular
-  .module('ngaApp.comics')
-  .directive('ngaComicList', downgradeComponent({component: ComicListComponent}));

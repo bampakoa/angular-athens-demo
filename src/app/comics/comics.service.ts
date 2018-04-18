@@ -1,13 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { downgradeInjectable } from '@angular/upgrade/static';
 import { catchError, map } from 'rxjs/operators';
 
 import { Comic } from './comic.model';
 import { ContextService } from '../core/core.service';
 import { environment } from '../../environments/environment';
-
-declare var angular: angular.IAngularStatic;
 
 @Injectable()
 export class ComicService {
@@ -25,7 +22,3 @@ export class ComicService {
   }
 
 }
-
-angular
-  .module('ngaApp.comics')
-  .service('comicService', downgradeInjectable(ComicService));

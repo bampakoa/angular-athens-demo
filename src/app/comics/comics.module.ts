@@ -6,8 +6,6 @@ import { ComicService } from './comics.service';
 import { AppMaterialModule } from '../app-material.module';
 import { SharedModule } from '../shared/shared.module';
 
-declare var angular: angular.IAngularStatic;
-
 @NgModule({
   imports: [
     AppMaterialModule,
@@ -18,8 +16,6 @@ declare var angular: angular.IAngularStatic;
     ComicListComponent
   ],
   providers: [ComicService],
-  entryComponents: [ComicListComponent]
+  exports: [ComicListComponent]
 })
 export class ComicsModule {}
-
-angular.module('ngaApp.comics', []);
