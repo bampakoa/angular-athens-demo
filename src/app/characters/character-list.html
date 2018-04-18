@@ -21,7 +21,7 @@
                     <nga-character-detail [character]="$ctrl.selectedCharacter"></nga-character-detail>
                 </md-tab>
                 <md-tab label="Comics">
-                    <nga-comic-list ng-if="$ctrl.selectedCharacter" character="$ctrl.selectedCharacter"></nga-comic-list>
+                    <nga-comic-list ng-if="$ctrl.selectedCharacter" [character]="$ctrl.selectedCharacter"></nga-comic-list>
                 </md-tab>
             </md-tabs>
     </md-content>

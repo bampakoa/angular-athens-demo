@@ -9,7 +9,6 @@ import { CharacterModule } from './characters/characters.module';
 import { ComicsModule } from './comics/comics.module';
 import { CoreModule } from './core/core.module';
 import { QuizModule } from './quiz/quiz.module';
-import { SharedModule } from './shared/shared.module';
 
 declare var angular: angular.IAngularStatic;
 
@@ -21,7 +20,6 @@ declare var angular: angular.IAngularStatic;
     CoreModule,
     HttpClientModule,
     QuizModule,
-    SharedModule,
     UpgradeModule
   ],
   providers: [
@@ -50,12 +48,11 @@ require('angular-ui-router');
 require('./characters/characters.module');
 require('./characters/character-card');
 require('./characters/character-list');
-require('./comics/comics.module');
-require('./comics/comic-detail');
-require('./comics/comic-list');
 require('./core/core.module');
 require('./core/core.config');
 require('./core/core.routes');
+require('./comics/comics.module');
+require('./comics/comic-list/comic-list.component');
 require('./layout/layout.module');
 require('./layout/copyright');
 require('./layout/shell');

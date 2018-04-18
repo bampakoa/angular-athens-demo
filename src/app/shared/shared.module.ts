@@ -12,6 +12,7 @@ declare var angular: angular.IAngularStatic;
     AppMaterialModule,
     CommonModule
   ],
+  exports: [CommonModule],
   entryComponents: [CharacterDetailComponent]
 })
 export class SharedModule {}
