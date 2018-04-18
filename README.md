@@ -1,4 +1,4 @@
-# Upgrade services
+# Upgrade components
 Use **downgradeComponent** method to upgrade components and use them in AngularJS context.
 
 ## Setup
