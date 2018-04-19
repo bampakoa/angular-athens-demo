@@ -1,14 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { downgradeInjectable } from '@angular/upgrade/static';
 import { map, catchError } from 'rxjs/operators';
 
 import { QuestionModel } from './question.model';
 import { Character } from '../core/character.model';
 import { ContextService } from '../core/core.service';
 import { environment } from '../../environments/environment';
-
-declare var angular: angular.IAngularStatic;
 
 @Injectable()
 export class QuizService {
@@ -115,7 +112,7 @@ export class QuizService {
     const heroId = Object.keys(ranking).reduce((a: string, b: string) => ranking[a] > ranking[b] ? a : b);
 
     return this.http
-      .get<Character>(environment.apiUrl + 'characters/' + heroId)
+      .get<Character>(`${environment.apiUrl}characters/${heroId}`)
       .pipe(
         map((response: any) => response.data.results[0]),
         catchError(this.contextService.handleError)
@@ -141,7 +138,3 @@ export class QuizService {
     });
   }
 }
-
-angular
-  .module('ngaApp')
-  .service('quizService', downgradeInjectable(QuizService));

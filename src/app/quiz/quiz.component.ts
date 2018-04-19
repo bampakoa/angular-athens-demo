@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { downgradeComponent } from '@angular/upgrade/static';
 
 import { QuestionModel } from './question.model';
 import { QuizService } from './quiz.service';
 import { Character } from '../core/character.model';
 import { Logger } from '../core/logger.service';
-
-declare var angular: angular.IAngularStatic;
 
 @Component({
   selector: 'app-quiz',
@@ -41,7 +38,3 @@ export class QuizComponent implements OnInit {
     }
   }
 }
-
-angular
-  .module('ngaApp')
-  .directive('ngaQuiz', downgradeComponent({component: QuizComponent}));

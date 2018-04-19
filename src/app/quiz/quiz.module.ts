@@ -19,7 +19,6 @@ import { SharedModule } from '../shared/shared.module';
     QuizRoutingModule,
     SharedModule
   ],
-  providers: [QuizService],
-  entryComponents: [QuizComponent]
+  providers: [QuizService]
 })
 export class QuizModule {}

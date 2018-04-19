@@ -3,13 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { CharacterDetailComponent } from './character-detail/character-detail.component';
-import { RouterLinkDirective } from './router-link.directive';
 import { AppMaterialModule } from '../app-material.module';
 
 @NgModule({
   declarations: [
-    CharacterDetailComponent,
-    RouterLinkDirective
+    CharacterDetailComponent
   ],
   imports: [
     AppMaterialModule,
@@ -18,8 +16,7 @@ import { AppMaterialModule } from '../app-material.module';
   exports: [
     CharacterDetailComponent,
     CommonModule,
-    FormsModule,
-    RouterLinkDirective
+    FormsModule
   ]
 })
 export class SharedModule {}

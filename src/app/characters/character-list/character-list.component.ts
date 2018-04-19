@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDrawer } from '@angular/material';
-import { downgradeComponent } from '@angular/upgrade/static';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import { catchError, debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
@@ -8,8 +7,6 @@ import { Subject } from 'rxjs/Subject';
 
 import { CharacterService } from '../characters.service';
 import { Character } from '../../core/character.model';
-
-declare var angular: angular.IAngularStatic;
 
 @Component({
   selector: 'app-character-list',
@@ -68,10 +65,3 @@ export class CharacterListComponent implements OnInit {
 
   trackByCharacters(index: number, character: Character) { return character.id; }
 }
-
-angular
-  .module('ngaApp')
-  .directive(
-    'ngaCharacterList',
-    downgradeComponent({ component: CharacterListComponent }) as angular.IDirectiveFactory
-  );

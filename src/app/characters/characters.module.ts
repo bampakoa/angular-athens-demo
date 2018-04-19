@@ -17,7 +17,6 @@ import { SharedModule } from '../shared/shared.module';
     CharacterCardComponent,
     CharacterListComponent
   ],
-  providers: [CharacterService],
-  entryComponents: [CharacterListComponent]
+  providers: [CharacterService]
 })
 export class CharacterModule {}

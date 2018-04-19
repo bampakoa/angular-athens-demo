@@ -1,14 +1,11 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { downgradeInjectable } from '@angular/upgrade/static';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 import { Character } from './character.model';
 import { Logger } from './logger.service';
 import { Thumbnail } from './thumbnail.model';
 import { environment } from '../../environments/environment';
-
-declare var angular: angular.IAngularStatic;
 
 @Injectable()
 export class ContextService {
@@ -21,7 +18,7 @@ export class ContextService {
   }
 
   getImage(variant: string, thumbnail: Thumbnail): string {
-    return thumbnail.path + '/' + variant + '.' + thumbnail.extension;
+    return `${thumbnail.path}/${variant}.${thumbnail.extension}`;
   }
 
   handleError = (error: HttpErrorResponse) => {
@@ -38,7 +35,3 @@ export class ContextService {
   }
 
 }
-
-angular
-  .module('ngaApp')
-  .service('contextService', downgradeInjectable(ContextService));

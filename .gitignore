@@ -5,7 +5,6 @@
 /dist-server
 /tmp
 /out-tsc
-/src/app/templates.ts
 
 # dependencies
 /node_modules

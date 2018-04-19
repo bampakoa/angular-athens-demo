@@ -19,7 +19,6 @@
         "testTsconfig": "tsconfig.spec.json",
         "prefix": "app",
         "styles": [
-          "../node_modules/angular-material/angular-material.css",
           "../node_modules/toastr/toastr.scss",
           "styles.css",
           "../node_modules/components-font-awesome/css/font-awesome.css"

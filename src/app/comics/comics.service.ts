@@ -13,7 +13,7 @@ export class ComicService {
 
   getComics(characterId: number): Promise<Comic[]> {
       return this.http
-        .get<Comic[]>(environment.apiUrl + 'characters/' + characterId + '/comics')
+        .get<Comic[]>(`${environment.apiUrl}characters/${characterId}/comics`)
         .pipe(
           map((response: any) => response.data.results),
           catchError(this.contextService.handleError)
