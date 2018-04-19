@@ -1,5 +1,0 @@
-{
-  "port": 3001,
-  "server": { "baseDir": ["./src", "./"] },
-  "watchOptions": { "ignored": ["node_modules", "test"] }
-}
