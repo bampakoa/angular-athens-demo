@@ -1,10 +1,17 @@
+import { Component, OnInit } from '@angular/core';
+
 import { environment } from '../environments/environment';
 
-export class AppComponent implements angular.IComponentController {
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent implements OnInit {
   title = '';
   version = '';
 
-  $onInit() {
+  ngOnInit() {
     this.title = environment.settings.appTitle;
     this.version = environment.settings.version;
   }

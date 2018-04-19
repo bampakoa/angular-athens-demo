@@ -4,7 +4,7 @@
     <app-question *ngFor="let question of questions" [question]="question"></app-question>
   </mat-list>
   <span fxLayout="row" fxLayoutGap="10px" fxFlexAlign="center">
-    <a mat-button appRouterLink="main">Cancel</a>
+    <a mat-button routerLink="/">Cancel</a>
     <button mat-raised-button color="primary" (click)="submit()">Submit</button>
   </span>
 </div>

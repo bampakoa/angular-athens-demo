@@ -1,28 +1,28 @@
-<div layout="column" layout-fill>
-    <md-toolbar>
-      <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="Logo" href="https://www.meetup.com/Angular-Athens/" target="_blank">
+<div fxLayout="column" fxFill>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <a mat-icon-button href="https://www.meetup.com/Angular-Athens/" target="_blank">
           <img src="assets/Angular-Athens.jpeg">
-        </md-button>
+        </a>
 
-        <h2 flex md-truncate>{{$ctrl.title}}</h2>
+        <h2 fxFlex>{{title}}</h2>
 
-        <md-button class="md-icon-button" aria-label="Assignment" ui-sref="quiz">
-          <md-icon>assignment</md-icon>
-        </md-button>
+        <a mat-icon-button routerLink="quiz">
+          <mat-icon>assignment</mat-icon>
+        </a>
 
-        <md-button class="md-icon-button" aria-label="Github" href="https://github.com/bampakoa/angular-athens-demo" target="_blank">
-          <md-icon class="fa fa-github"></md-icon>
-        </md-button>
-      </div>
-    </md-toolbar>
-    <md-content flex class="content">
-        <div ui-view></div>
-    </md-content>
-    <md-toolbar>
-        <div class="md-toolbar-tools">
-            <small>version: {{$ctrl.version}}</small>
-            <small flex layout="row" layout-align="end center">Data provided by Marvel. © 2014 Marvel</small>
-        </div>
-    </md-toolbar>
+        <a mat-icon-button href="https://github.com/bampakoa/angular-athens-demo" target="_blank">
+          <mat-icon class="fa fa-github"></mat-icon>
+        </a>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div fxFlex class="content">
+      <router-outlet></router-outlet>
+    </div>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <small fxFlex>version: {{version}}</small>
+        <small>Data provided by Marvel. © 2014 Marvel</small>
+      </mat-toolbar-row>
+    </mat-toolbar>
 </div>
