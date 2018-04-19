@@ -40,5 +40,5 @@ export class ContextService {
 }
 
 angular
-  .module('ngaApp.core')
+  .module('ngaApp')
   .service('contextService', downgradeInjectable(ContextService));

@@ -7,8 +7,6 @@ import { AppMaterialModule } from '../app-material.module';
 import { ComicsModule } from '../comics/comics.module';
 import { SharedModule } from '../shared/shared.module';
 
-declare var angular: angular.IAngularStatic;
-
 @NgModule({
   imports: [
     AppMaterialModule,
@@ -23,5 +21,3 @@ declare var angular: angular.IAngularStatic;
   entryComponents: [CharacterListComponent]
 })
 export class CharacterModule {}
-
-angular.module('ngaApp.characters', []);

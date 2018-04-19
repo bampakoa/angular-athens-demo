@@ -43,5 +43,5 @@ export class QuizComponent implements OnInit {
 }
 
 angular
-  .module('ngaApp.quiz')
+  .module('ngaApp')
   .directive('ngaQuiz', downgradeComponent({component: QuizComponent}));

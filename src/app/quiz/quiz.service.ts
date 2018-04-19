@@ -143,5 +143,5 @@ export class QuizService {
 }
 
 angular
-  .module('ngaApp.quiz')
+  .module('ngaApp')
   .service('quizService', downgradeInjectable(QuizService));

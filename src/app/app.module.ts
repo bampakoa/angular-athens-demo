@@ -42,26 +42,17 @@ export class AppModule {
 }
 
 require('angular');
-require('angular-animate');
-require('angular-aria');
 require('angular-material');
-require('angular-sanitize');
 require('angular-ui-router');
-
-require('./characters/characters.module');
-require('./core/core.module');
-require('./core/core.config');
-require('./core/core.routes');
-require('./quiz/quiz.module');
-require('./templates');
 
 angular
   .module('ngaApp', [
-      'ngaApp.core',
-      'ngaApp.characters',
-      'ngaApp.quiz'
+    'ngMaterial',
+    'ui.router'
   ]);
 
+require('./core/core.routes');
+require('./templates');
 
 angular
   .module('ngaApp')

@@ -13,11 +13,11 @@ gulp.task('templatecache', function () {
             collapseWhitespace: true
         }))
         .pipe(plug.angularTemplatecache('templates.ts', {
-            module: 'ngaApp.core',
+            module: 'ngaApp',
             standalone: false,
             root: 'app/',
             templateHeader: 'function templateCacheFactory($templateCache: angular.ITemplateCacheService) {',
-            templateFooter: '}; angular.module(\'ngaApp.core\').run(templateCacheFactory);'
+            templateFooter: '}; angular.module(\'ngaApp\').run(templateCacheFactory);'
         }))
         .pipe(gulp.dest('./src/app/'))
   });

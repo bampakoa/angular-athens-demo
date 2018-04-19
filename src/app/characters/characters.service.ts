@@ -28,5 +28,5 @@ export class CharacterService {
 }
 
 angular
-  .module('ngaApp.characters')
+  .module('ngaApp')
   .service('characterService', downgradeInjectable(CharacterService));

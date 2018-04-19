@@ -16,5 +16,5 @@ function configureCoreRoutes($stateProvider: angular.ui.IStateProvider, $urlRout
 }
 
 angular
-  .module('ngaApp.core')
+  .module('ngaApp')
   .config(configureCoreRoutes);

@@ -70,7 +70,7 @@ export class CharacterListComponent implements OnInit {
 }
 
 angular
-  .module('ngaApp.characters')
+  .module('ngaApp')
   .directive(
     'ngaCharacterList',
     downgradeComponent({ component: CharacterListComponent }) as angular.IDirectiveFactory
